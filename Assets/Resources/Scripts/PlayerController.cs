@@ -58,8 +58,10 @@ public class PlayerController : MonoBehaviour
         mouseX += Input.GetAxisRaw("Mouse X") * MouseSensitivity;
         mouseY += Input.GetAxisRaw("Mouse Y") * MouseSensitivity;
 
+        var temp = Quaternion.Euler(Vector3.left * mouseY);
+        Debug.Log(temp);
         transform.localRotation = Quaternion.Euler(Vector3.up * mouseX);
-        playerCamera.transform.localRotation = Quaternion.Euler(Vector3.left * mouseY);
+        playerCamera.transform.localRotation = temp;
 
     }
 }
