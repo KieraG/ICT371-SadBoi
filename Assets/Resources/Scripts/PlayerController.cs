@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Fluent;
 
 public class PlayerController : MonoBehaviour
 {
@@ -32,6 +33,12 @@ public class PlayerController : MonoBehaviour
     {
         Rotate();
         Move();
+
+        // Interact with dialogue
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            FluentManager.Instance.ExecuteClosestAction(gameObject);
+        }
     }
 
     void Move()
