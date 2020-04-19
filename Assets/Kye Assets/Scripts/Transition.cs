@@ -4,10 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Transition : MonoBehaviour
 {
-
+    [Tooltip("Canvas attached to the player")]
     public Canvas busTransition;
     public GameObject player;
+
+    [Tooltip("Simple boolean that controls whether or not the transition is active. Have this set to false if you want to wait for an event to occur before the transition is allowed, then set it ture once the event is completed.")]
     public bool continueOn = false;
+
+    [Tooltip("Set this to the number position of the scene you want to transition to is to. Eg. the first scene = 0.")]
     public int sceneNumber = 0;
     private Color tempColor;
 
