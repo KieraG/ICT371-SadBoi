@@ -43,8 +43,10 @@ public class PlayerController : MonoBehaviour
             Vector3 strafeMovement = transform.right * Input.GetAxisRaw("Horizontal");
 
             moveDirection = (forwardMovement + strafeMovement).normalized * moveSpeed;
-            if (Input.GetKeyDown(KeyCode.Space))
+            Debug.Log(Input.GetAxis("Jump"));
+            if (Input.GetAxis("Jump") > 0)
             {
+
                 moveDirection.y = jumpForce;
             }
         }
@@ -57,6 +59,9 @@ public class PlayerController : MonoBehaviour
     {
         mouseX += Input.GetAxisRaw("Mouse X") * MouseSensitivity;
         mouseY += Input.GetAxisRaw("Mouse Y") * MouseSensitivity;
+
+        mouseX += Input.GetAxisRaw("GamepadLookX") * MouseSensitivity;
+        mouseY += Input.GetAxisRaw("GamepadLookY") * MouseSensitivity;
         if (mouseY > 90)
         {
             mouseY = 90;
