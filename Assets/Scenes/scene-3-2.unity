@@ -3774,6 +3774,50 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &570200249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 570200250}
+  - component: {fileID: 570200251}
+  m_Layer: 0
+  m_Name: RoofCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &570200250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570200249}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1002096339}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &570200251
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570200249}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.767921, y: 0.46992147, z: 5.4424157}
+  m_Center: {x: -2.648819, y: -1.0800387, z: -2.536502}
 --- !u!1 &570911753 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1320930750091858, guid: 9b067ffd8944f8b49bfcbaa66d4b13b0,
@@ -6109,7 +6153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   busTransition: {fileID: 128324274}
   player: {fileID: 1576704896}
-  continueOn: 0
+  continueOn: 1
   sceneNumber: 1
 --- !u!1001 &1060805576
 PrefabInstance:
@@ -8814,7 +8858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   busTransition: {fileID: 128324274}
   player: {fileID: 1576704896}
-  continueOn: 0
+  continueOn: 1
   sceneNumber: 1
 --- !u!1001 &1536656328
 PrefabInstance:
