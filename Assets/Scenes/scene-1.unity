@@ -48773,6 +48773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17220ceac56161444a1388a7c4d801fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  assetPath: Assets/Resources/test.mp4
 --- !u!82 &1869832896
 AudioSource:
   m_ObjectHideFlags: 0
