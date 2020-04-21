@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5;
     private float jumpForce = 5;
     private float gravityForce = 9.807f;
+    private Vector3 startPos = new Vector3(0,0,0);
 
     float mouseX = 0;
     float mouseY = 0;
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         playerCamera = GetComponentInChildren<Camera>();
         Cursor.lockState = CursorLockMode.Locked;
+        startPos = this.transform.localPosition;
     }
    
     // Update is called once per frame
@@ -86,4 +88,10 @@ public class PlayerController : MonoBehaviour
         transform.localRotation = Quaternion.Euler(Vector3.up * mouseX);
         playerCamera.transform.localRotation = temp;
     }
+
+    public Vector3 getStartPos()
+    {
+        return startPos;
+    }
+
 }
