@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class DialogueInteractableInterface : MonoBehaviour
 {
-    public int range = 5;
+    public float range = 5;
 
     public DialogueManager dialogueManager;
 
