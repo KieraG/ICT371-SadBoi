@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 
-public class Algore : MonoBehaviour
+public class ScreenVideo : MonoBehaviour
 {
     UnityEngine.Video.VideoPlayer vp;
+    public string assetPath = "";
 
     void Start()
     {
         vp = gameObject.AddComponent<UnityEngine.Video.VideoPlayer>();
-        vp.url = ".//Assets//Resources//test.mp4";
+        vp.url = assetPath;
 
         vp.isLooping = true;
         vp.renderMode = UnityEngine.Video.VideoRenderMode.MaterialOverride;

@@ -41,24 +41,40 @@ public class PlayerController : MonoBehaviour
 
         if (characterController.isGrounded)
         {
+            //get the forward movement
             Vector3 forwardMovement = transform.forward * Input.GetAxisRaw("Vertical");
+
+            //get the sideways movement
             Vector3 strafeMovement = transform.right * Input.GetAxisRaw("Horizontal");
 
+            //set the move direction
             moveDirection = (forwardMovement + strafeMovement).normalized * moveSpeed;
-            if (Input.GetKeyDown(KeyCode.Space))
+
+            //Axis "Jump" is used by the gamepad as well as the keyboard
+            if (Input.GetAxis("Jump") > 0)
             {
+                //Add jump force to the up force
                 moveDirection.y = jumpForce;
             }
         }
 
+        // Reduce up force by gravity
         moveDirection.y -= gravityForce * Time.deltaTime;
 
+        // Add force to player movement
         characterController.Move(moveDirection * Time.deltaTime);
     }
     void Rotate()
     {
+        //Gather mouse input
         mouseX += Input.GetAxisRaw("Mouse X") * MouseSensitivity;
         mouseY += Input.GetAxisRaw("Mouse Y") * MouseSensitivity;
+
+        //Gather Gamepad input
+        mouseX += Input.GetAxisRaw("GamepadLookX") * MouseSensitivity;
+        mouseY += Input.GetAxisRaw("GamepadLookY") * MouseSensitivity;
+
+        //lock input
         if (mouseY > 90)
         {
             mouseY = 90;
@@ -66,6 +82,8 @@ public class PlayerController : MonoBehaviour
         {
             mouseY = -90;
         }
+
+        //Rotate camera
         var temp = Quaternion.Euler(Vector3.left * mouseY);
         transform.localRotation = Quaternion.Euler(Vector3.up * mouseX);
         playerCamera.transform.localRotation = temp;
