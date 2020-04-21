@@ -70,6 +70,7 @@ public class PlayerController : MonoBehaviour
 
             // Reduce up force by gravity
             moveDirection.y -= gravityForce * Time.deltaTime;
+            }
         } else {
             moveDirection.x = 0;
             moveDirection.y = 0;
