@@ -6,29 +6,49 @@ using Fluent;
 /// </summary>
 public class MumDialogue : MyFluentDialogue
 {
+    public override void OnStart() { PlayerController.canMove = false; }
+    public override void OnFinish() { PlayerController.canMove = true; }
 
     private void SomeFunction()
     {
         // do something
+    }
+    
+    FluentNode DinnerOptions()
+    {
+        return
+            Options
+            (
+                Option("Pasta!") *
+                    Hide() *
+                    Yell("Don't tell me what to do!") *
+                    End() *
+                Option("The blood of my enemies") *
+                    Hide() *
+                    Yell("Don't tell me what to do!") *
+                    End() *
+                Option("Fruit loops") *
+                    Hide() *
+                    Yell("Sure!") *
+                    End()
+            );
     }
 
     public override FluentNode Create()
     {
         return
             Show() *
-            Write(0, "Time to realise your choices affect the world!") *
+            Write(0, "Hello daughter!") *
 
             Options
             (
-                Option("Make me pink!") *
-                    Write("Abara Kadabara!") *
-                    Do(() => SomeFunction()) *
+                Option("What's for dinner?") *
+                    Write("I don't know, what is for dinner?") *
+                    DinnerOptions() *
 
-                Option("Make me blue!") *
+                Option("Hello!") *
                     Hide() *
-                    Yell("Abara Kadabara!") *
-                    Do(() => SomeFunction()) *
-                    Pause(1) *
+                    Yell("Hello! Is there somehting I can do for you?") *
                     Show() *
 
                 Option("Bye !") *
