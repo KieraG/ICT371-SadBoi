@@ -20,13 +20,18 @@ public class PlayerController : MonoBehaviour
 
     float mouseX = 0;
     float mouseY = 0;
-   
+
+    public DialogueManager dialogueManager = null;
+
+    private DialogueInteractableInterface[] dialogueInteractables = null;
+
     // Start is called before the first frame update
     void Start()
     {
         playerCamera = GetComponentInChildren<Camera>();
         Cursor.lockState = CursorLockMode.Locked;
         startPos = this.transform.localPosition;
+        dialogueInteractables = GameObject.FindObjectsOfType<DialogueInteractableInterface>();
     }
    
     // Update is called once per frame
@@ -34,6 +39,32 @@ public class PlayerController : MonoBehaviour
     {
         Rotate();
         Move();
+
+        // todo change to allow for gamepad mappings
+        if (dialogueManager.DialogQueued() && Input.GetKeyDown(KeyCode.E)) {
+            dialogueManager.IterateDialogue();
+        } else if (Input.GetKeyDown(KeyCode.E)) {
+            // find closest item in range
+            DialogueInteractableInterface closestInteractable = null;
+            float closestDistance = float.MaxValue;
+            foreach (DialogueInteractableInterface interactable in dialogueInteractables)
+            {
+                float distance = (interactable.gameObject.transform.position - gameObject.transform.position).magnitude;
+
+                // make sure item is within range
+                if (distance < interactable.range) {
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestInteractable = interactable;
+                    }
+                }
+            }
+
+            if (closestInteractable != null) {
+                closestInteractable.TriggerAction();
+            }
+        }
     }
 
     void Move()
