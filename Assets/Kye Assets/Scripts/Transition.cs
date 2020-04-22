@@ -35,7 +35,6 @@ public class Transition : MonoBehaviour
         if (col.gameObject.tag == "Player" && continueOn)
         {
             busTransition.gameObject.SetActive(true);
-            Debug.Log("hello");
             StartCoroutine(FadeInTime());
         }
 
