@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Dialogue that lets the user talk to their mum
+// The first conversation is different to the following conversations
 public class MumDialogue : DialogueInteractableInterface
 {
+    // Whether the user has already had a conversation with the NPC
     private bool hadConversation = false;
+
+    // Determines what to do when the action is triggered
     public override void TriggerAction()
     {
         dialogueManager.Enqueue("Me: Hello mother");
