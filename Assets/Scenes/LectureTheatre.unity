@@ -19303,7 +19303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f08f02f8cb98d5488cd201cb0e3c222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
+  range: 2
   dialogueManager: {fileID: 1955454028}
   mang: {fileID: 1955454028}
 --- !u!65 &1756372201

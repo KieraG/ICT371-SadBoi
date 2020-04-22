@@ -6074,7 +6074,7 @@ MonoBehaviour:
   busTransition: {fileID: 712916234}
   player: {fileID: 1394528528}
   continueOn: 1
-  sceneNumber: 3
+  sceneNumber: 2
 --- !u!1001 &211438423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57995,7 +57995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fdd2e984bb367c48a4e45c5f1d97402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
+  range: 2
   dialogueManager: {fileID: 1204686451}
 --- !u!1 &2013899029 stripped
 GameObject:

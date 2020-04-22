@@ -3798,7 +3798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a368945fcaddf42b1c12c0b67916ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
+  range: 2
   dialogueManager: {fileID: 1967131645}
   mang: {fileID: 1967131645}
 --- !u!65 &569739359
