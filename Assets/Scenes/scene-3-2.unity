@@ -562,7 +562,7 @@ MonoBehaviour:
   busTransition: {fileID: 128324274}
   player: {fileID: 1576704896}
   continueOn: 1
-  sceneNumber: 1
+  sceneNumber: 0
 --- !u!1 &116902539 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1526665992311050, guid: 557244deb7e8d444197b5b6fd8e650a9,
