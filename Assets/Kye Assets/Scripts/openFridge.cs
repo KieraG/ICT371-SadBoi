@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class openFridge : MonoBehaviour
 {
-    private bool openMore = true;
+    public bool openMore = true;
     // Start is called before the first frame update
     void Start()
     {
