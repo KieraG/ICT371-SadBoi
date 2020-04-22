@@ -38,6 +38,8 @@ public class RandomFriend : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+
+
                 blocker.GetComponent<Transition>().continueOn = true;
                 transitionArea.SetActive(true);
                 arrow.SetActive(true);
