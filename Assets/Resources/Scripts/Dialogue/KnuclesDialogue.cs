@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Dialogue that lets the user talk to knuckles, who is inside a fridge, if the fridge is open
+// The first conversation is different to the following conversations
 public class KnuclesDialogue : DialogueInteractableInterface
 {
+    // Fridge script to check if the fridge is currently open
     public openFridge fridgeInteraction;
+
+    // Whether the user has already had a conversation with the NPC
     private bool hadConversation = false;
 
+    // Initial range to reset when the door is open
     private float initialRange;
 
     void Start()
@@ -23,6 +29,7 @@ public class KnuclesDialogue : DialogueInteractableInterface
         }
     }
 
+    // Determines what to do when the action is triggered
     public override void TriggerAction()
     {
         if (!hadConversation) {
