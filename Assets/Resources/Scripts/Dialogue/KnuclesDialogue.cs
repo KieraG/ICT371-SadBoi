@@ -26,7 +26,7 @@ public class KnuclesDialogue : DialogueInteractableInterface
     public override void TriggerAction()
     {
         if (!hadConversation) {
-            dialogueManager.Enqueue("Me: What a weird toy");
+            dialogueManager.Enqueue("Me: Hello my god, how may i serve you??");
             dialogueManager.Enqueue("???: HELLO BRADDAH");
             dialogueManager.Enqueue("Me: Hello?");
             hadConversation = true;

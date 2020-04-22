@@ -53,4 +53,9 @@ public class DialogueManager : MonoBehaviour
     {
         return dialogQueue.Count > 0;
     }
+
+    public void resetQueue()
+    {
+        dialogQueue.Clear();
+    }
 }

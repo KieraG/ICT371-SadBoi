@@ -25,7 +25,6 @@ public class FadeOnNewScene : MonoBehaviour
     IEnumerator FadeOutTime()
     {
         var transOpacity = 1f;
-        Debug.Log(busTransition.GetComponent<CanvasGroup>().alpha);
 
         // Fades from black to white
         while (busTransition.GetComponent<CanvasGroup>().alpha > 0)
