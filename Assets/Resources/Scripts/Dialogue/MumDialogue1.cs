@@ -20,13 +20,15 @@ public class MumDialogue1 : DialogueInteractableInterface
         if (!hadConversation)
         {
 
-            dialogueManager.Enqueue("I say stuff here");
+            dialogueManager.Enqueue("Hey Honey, it's getting late.");
+            dialogueManager.Enqueue("You should be getting ready for bed.");
+            dialogueManager.Enqueue("Also could you please put your juice box into the trash can?");
 
             hadConversation = true;
         }
         else
         {
-            dialogueManager.Enqueue("I say stuff here after you have talked to me!");
+            dialogueManager.Enqueue("Come on honey, its getting late. Head up stairs and get to bed.");
         }
     }
 }
