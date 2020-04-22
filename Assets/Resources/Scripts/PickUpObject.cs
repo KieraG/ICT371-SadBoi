@@ -30,7 +30,7 @@ public class PickUpObject : MonoBehaviour
 		var rigidbody = GetComponent<Rigidbody>();
 		if (beingCarried)
 		{
-			if (Input.GetMouseButtonDown(0))
+			if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E))
 			{
 				rigidbody.isKinematic = false;
 				transform.parent = null;
@@ -40,7 +40,7 @@ public class PickUpObject : MonoBehaviour
 		}
 		else
 		{
-			if (Input.GetMouseButtonDown(0) && hasPlayer)
+			if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E) && hasPlayer)
 			{
 				rigidbody.isKinematic = true;
 				transform.parent = player;
