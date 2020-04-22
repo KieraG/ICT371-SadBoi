@@ -40,10 +40,9 @@ public class PlayerController : MonoBehaviour
         Rotate();
         Move();
 
-        // todo change to allow for gamepad mappings
-        if (dialogueManager.DialogQueued() && Input.GetKeyDown(KeyCode.E)) {
+        if (dialogueManager.DialogQueued() && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown("joystick button 2") )) {
             dialogueManager.IterateDialogue();
-        } else if (Input.GetKeyDown(KeyCode.E)) {
+        } else if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown("joystick button 2")) {
             // find closest item in range
             DialogueInteractableInterface closestInteractable = null;
             float closestDistance = float.MaxValue;
