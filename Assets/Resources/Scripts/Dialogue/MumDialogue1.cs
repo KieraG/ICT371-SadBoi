@@ -23,6 +23,7 @@ public class MumDialogue1 : DialogueInteractableInterface
             dialogueManager.Enqueue("Hey Honey, it's getting late.");
             dialogueManager.Enqueue("You should be getting ready for bed.");
             dialogueManager.Enqueue("Also could you please put your juice box into the trash can?");
+            dialogueManager.Enqueue("You left it in the lounge room on the coffee table.");
 
             hadConversation = true;
         }
