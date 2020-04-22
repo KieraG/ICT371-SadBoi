@@ -19,13 +19,13 @@ public class openFridge : MonoBehaviour
 
     private void OnTriggerStay(Collider collision)
     {
-        if (collision.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.Q) && openMore)
+        if (collision.gameObject.tag == "Player" && (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown("joystick button 2")) && openMore)
         {
             transform.Rotate(new Vector3(0,-40,0).normalized,40f );
             openMore = false;
         }
 
-        else if (collision.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.Q) && !openMore)
+        else if (collision.gameObject.tag == "Player" && (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown("joystick button 2")) && !openMore)
         {
             transform.Rotate(new Vector3(0, 40, 0).normalized, 40f);
             openMore = true;
