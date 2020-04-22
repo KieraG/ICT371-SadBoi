@@ -39,7 +39,10 @@ public class PlayerController : MonoBehaviour
     {
         Rotate();
         Move();
-
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
         if (dialogueManager.DialogQueued() && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown("joystick button 2") )) {
             dialogueManager.IterateDialogue();
         } else if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown("joystick button 2")) {
