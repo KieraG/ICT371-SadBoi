@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -7,13 +8,18 @@ using TMPro;
 // If there is any dialogue in the queue, the one at the top is displayed.
 // External scripts can add dialogue to the queue and iterate to the next dialogue in the queue.
 // Dialogue is designed to display to a 2D canvas, which has a TextmeshProUGUI object
+
 public class DialogueManager : MonoBehaviour
 {
+    public delegate void DoAction();
     // Queue of all currently-queued dialogue
-    private Queue<string> dialogQueue = new Queue<string>();
+    private Queue<Tuple<string, DoAction>> dialogQueue = new Queue<Tuple<string, DoAction>>();
 
     // Canvas the display text should be contained within
     public GameObject dialogueCanvas;
+
+    // Whether to run the action  associated with the dialogue
+    private bool InvokeAction = true;
 
     // Start is called before the first frame update
     void Start()
@@ -24,18 +30,28 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (DialogQueued()) {
+        if (DialogQueued())
+        {
             DisplayDialogue(dialogQueue.Peek());
-        } else {
+        }
+        else
+        {
             HideDialogue();
         }
     }
 
     // Display the latest dialogue
-    private void DisplayDialogue(string dialogue)
+    private void DisplayDialogue(Tuple<string, DoAction> dialogue)
     {
         dialogueCanvas.SetActive(true);
-        dialogueCanvas.GetComponentInChildren<TextMeshProUGUI>().text = dialogue;
+        dialogueCanvas.GetComponentInChildren<TextMeshProUGUI>().text = dialogue.Item1;
+
+        if (InvokeAction)
+        {
+            dialogue.Item2?.Invoke();
+            InvokeAction = false;
+        }
+
     }
 
     // Hide any dialogue
@@ -47,15 +63,17 @@ public class DialogueManager : MonoBehaviour
     // Iterate to the next dialogue in the queue if there is one
     public void IterateDialogue()
     {
-        if (DialogQueued()) {
+        if (DialogQueued())
+        {
             dialogQueue.Dequeue();
+            InvokeAction = true;
         }
     }
 
     // Add dialogue to the queue
-    public void Enqueue(string dialogue)
+    public void Enqueue(string dialogue, DoAction action = null)
     {
-        dialogQueue.Enqueue(dialogue);
+        dialogQueue.Enqueue(new Tuple<string, DoAction>(dialogue, action));
     }
 
     // Return if any dialogue should be dislayed

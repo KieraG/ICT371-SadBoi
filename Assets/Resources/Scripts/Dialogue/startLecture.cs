@@ -5,10 +5,13 @@ using UnityEngine;
 public class startLecture : DialogueInteractableInterface
 {
     private bool hadConversation = false;
-    public DialogueManager mang;
+    public DialogueManager mang = null;
+    public GameObject SlideShowScreen;
+    private  DialogueManager.DoAction Action = null;
+
     void Start()
     {
-
+        Action = delegate { SlideShowScreen.GetComponent<Slideshow>().NextSlide(); };
     }
 
     void Update()
@@ -28,7 +31,7 @@ public class startLecture : DialogueInteractableInterface
         }
         else
         {
-            dialogueManager.Enqueue("Professor: Still can't find your desk? It is at the back left of the room.");
+            dialogueManager.Enqueue("Professor: Still can't find your desk? It is at the back left of the room.", Action);
         }
-    } 
+    }
 }
