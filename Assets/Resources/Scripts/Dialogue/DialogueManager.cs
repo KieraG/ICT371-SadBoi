@@ -44,7 +44,9 @@ public class DialogueManager : MonoBehaviour
     private void DisplayDialogue(Tuple<string, DoAction> dialogue)
     {
         dialogueCanvas.SetActive(true);
-        dialogueCanvas.GetComponentInChildren<TextMeshProUGUI>().text = dialogue.Item1;
+        var speaker = GetSpeaker(dialogue.Item1);
+        int textIndex = dialogue.Item1.IndexOf(":", StringComparison.Ordinal);
+        dialogueCanvas.GetComponentInChildren<TextMeshProUGUI>().text = dialogue.Item1.Substring(textIndex + 1);
 
         if (InvokeAction)
         {
@@ -58,6 +60,18 @@ public class DialogueManager : MonoBehaviour
     private void HideDialogue()
     {
         dialogueCanvas.SetActive(false);
+    }
+
+    private static string GetSpeaker(string dialogue)
+    {
+        string speaker = " ";
+        int speakerIndex = dialogue.IndexOf(":", StringComparison.Ordinal);
+        if (speakerIndex > 0)
+        {
+            speaker = dialogue.Substring(0, speakerIndex);
+
+        }
+        return speaker;
     }
 
     // Iterate to the next dialogue in the queue if there is one
