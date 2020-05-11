@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class DeskTrigger : MonoBehaviour
 {
-    public GameObject LectureTheatre = null;
-
-    
     void OnTriggerEnter(Collider other)
     {
-        LectureTheatre.GetComponent<LectureTheatreController>().ShowWaypoint = false;
+        GameObject.Find("Waypoint").GetComponentInChildren<Renderer>().enabled = false;
+        var Player = GameObject.Find("Main Character").GetComponent<PlayerController>();
+        Player.AllowLooking = false;
+        Player.AllowMovement = false;
+
     }
 }

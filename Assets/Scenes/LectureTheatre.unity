@@ -2851,6 +2851,28 @@ Transform:
   m_Father: {fileID: 1664444534}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &411384854 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 0bf73d4b4f2d14346bb56b2164eda25f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031494567}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &411384856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411384854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba126e2cc1ddf744a26da9cba718ffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WayPointPosition: {x: 0, y: 0, z: 0}
+  Offset: {x: 0, y: 4, z: 0}
+  Amplitude: 0.5
+  Frequency: 0.5
 --- !u!1 &413781731
 GameObject:
   m_ObjectHideFlags: 0
@@ -5815,6 +5837,9 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0, z: 0}
   MouseSensitivity: 5
   moveSpeed: 5
+  AllowMovement: 1
+  AllowLooking: 1
+  AllowInteraction: 1
   dialogueManager: {fileID: 1955454028}
 --- !u!114 &662942972
 MonoBehaviour:
@@ -11982,7 +12007,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100002, guid: 0bf73d4b4f2d14346bb56b2164eda25f, type: 3}
       propertyPath: m_Name
-      value: DeskWaypoint
+      value: Waypoint
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0bf73d4b4f2d14346bb56b2164eda25f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12026,6 +12051,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0bf73d4b4f2d14346bb56b2164eda25f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 0bf73d4b4f2d14346bb56b2164eda25f, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -12808,7 +12837,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e8ff5d6735c8943971e7aca3a0ad10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowWaypoint: 1
 --- !u!1001 &1119664149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14548,7 +14576,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 574b1c637fe3dab49a0f9e6782576a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LectureTheatre: {fileID: 1114597391}
 --- !u!1 &1375339222
 GameObject:
   m_ObjectHideFlags: 0
@@ -17272,6 +17299,10 @@ PrefabInstance:
     - target: {fileID: 1683354082558632, guid: a90e7553c408fc14a82f8743fc214d69, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683354082558632, guid: a90e7553c408fc14a82f8743fc214d69, type: 3}
+      propertyPath: m_Name
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1857656698886546, guid: a90e7553c408fc14a82f8743fc214d69, type: 3}
       propertyPath: m_IsActive
@@ -20215,7 +20246,7 @@ GameObject:
   - component: {fileID: 1756792177}
   - component: {fileID: 1751368825}
   m_Layer: 0
-  m_Name: Character_BusinessMan_Suit
+  m_Name: Professor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
