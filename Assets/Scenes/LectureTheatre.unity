@@ -1598,7 +1598,7 @@ MonoBehaviour:
   busTransition: {fileID: 446081864}
   player: {fileID: 662942969}
   continueOn: 1
-  sceneNumber: 4
+  sceneNumber: 3
 --- !u!1 &265022238 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 622273b70e077ba4f9f06ec8176c3d1c,
@@ -5712,7 +5712,7 @@ PrefabInstance:
     - target: {fileID: 64084451251330748, guid: f710382517201604d939dd1e30c50b66,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 64341942290185190, guid: f710382517201604d939dd1e30c50b66,
         type: 3}
@@ -5722,7 +5722,7 @@ PrefabInstance:
     - target: {fileID: 64341942290185190, guid: f710382517201604d939dd1e30c50b66,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 64727388790175380, guid: f710382517201604d939dd1e30c50b66,
         type: 3}
@@ -5732,7 +5732,7 @@ PrefabInstance:
     - target: {fileID: 64727388790175380, guid: f710382517201604d939dd1e30c50b66,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 64856509702005328, guid: f710382517201604d939dd1e30c50b66,
         type: 3}
@@ -5742,7 +5742,7 @@ PrefabInstance:
     - target: {fileID: 64856509702005328, guid: f710382517201604d939dd1e30c50b66,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f710382517201604d939dd1e30c50b66, type: 3}
@@ -5767,7 +5767,7 @@ MonoBehaviour:
   busTransition: {fileID: 446081864}
   player: {fileID: 662942969}
   continueOn: 1
-  sceneNumber: 4
+  sceneNumber: 3
 --- !u!4 &649930353 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 459288, guid: f710382517201604d939dd1e30c50b66,
@@ -5949,6 +5949,20 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!136 &662942976
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662942969}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!4 &662942977 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4873984844557558, guid: a90e7553c408fc14a82f8743fc214d69,
