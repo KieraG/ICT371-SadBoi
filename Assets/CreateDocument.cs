@@ -11,7 +11,6 @@ public class CreateDocument : MonoBehaviour
 
     public TMP_Text timerText;
     public GameObject endscreen = null;
-    
 
     [HideInInspector]
     public bool changeDocument = true;
@@ -31,7 +30,6 @@ public class CreateDocument : MonoBehaviour
     [HideInInspector]
     public GameObject currentSignature = null;
 
-
     [HideInInspector]
     public int scoreCounter = 0;
 
@@ -40,12 +38,30 @@ public class CreateDocument : MonoBehaviour
 
     private float timer = 60;
 
+    [SerializeField]
+    private InformationScreen infoScreen = null;
+
+
+    private bool firstInfoWindow = true;
+
+
 
     void Start()
     {
-        incorrectLogo = logoComponents[(int)Random.Range(0, logoComponents.Length)].tag;
-        incorrectDate = dateComponents[(int)Random.Range(0, dateComponents.Length)].tag;
-        incorrectSignature = signatureComponents[(int)Random.Range(0, signatureComponents.Length)].tag;
+        GameObject temp;
+
+        temp = logoComponents[(int)Random.Range(0, logoComponents.Length)];
+        infoScreen.infoLogo = temp;
+        incorrectLogo = temp.tag;
+
+        temp = dateComponents[(int)Random.Range(0, dateComponents.Length)];
+        infoScreen.infoDate = temp;
+        incorrectDate = temp.tag;
+
+        temp = signatureComponents[(int)Random.Range(0, signatureComponents.Length)];
+        infoScreen.infoSignature = temp;
+        incorrectSignature= temp.tag;
+
     }
 
     // Update is called once per frame
@@ -57,26 +73,32 @@ public class CreateDocument : MonoBehaviour
             endscreen.SetActive(true);
         }
 
-        if (changeDocument)
-        {
-            //Destroy(currentObj);
-            //currentObj = Instantiate(documentComponents[(int)Random.Range(0, documentComponents.Length)]);
+        //if (!infoScreen.activeSelf && !firstInfoWindow)
+        //{
+            if (changeDocument)
+            {
+                //Destroy(currentObj);
+                //currentObj = Instantiate(documentComponents[(int)Random.Range(0, documentComponents.Length)]);
 
-            Destroy(currentLogo);
-            Destroy(currentDate);
-            Destroy(currentSignature);
+                Destroy(currentLogo);
+                Destroy(currentDate);
+                Destroy(currentSignature);
 
-            currentLogo = Instantiate(logoComponents[(int)Random.Range(0, logoComponents.Length)]);
+                currentLogo = Instantiate(logoComponents[(int)Random.Range(0, logoComponents.Length)]);
 
-            currentDate = Instantiate(dateComponents[(int)Random.Range(0, dateComponents.Length)]);
+                currentDate = Instantiate(dateComponents[(int)Random.Range(0, dateComponents.Length)]);
 
-            currentSignature = Instantiate(signatureComponents[(int)Random.Range(0, signatureComponents.Length)]);
+                currentSignature = Instantiate(signatureComponents[(int)Random.Range(0, signatureComponents.Length)]);
 
-            changeDocument = false;
-        }
+                changeDocument = false;
+            }
 
-        timer -= Time.deltaTime;
+            timer -= Time.deltaTime;
 
-        timerText.text = timer.ToString("F1");
+            timerText.text = timer.ToString("F1");
+
+            firstInfoWindow = false;
+        //}
+           
     }
 }
