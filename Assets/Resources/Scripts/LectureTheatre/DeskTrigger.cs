@@ -10,6 +10,8 @@ public class DeskTrigger : MonoBehaviour
         var Player = GameObject.Find("Main Character").GetComponent<PlayerController>();
         Player.AllowLooking = false;
         Player.AllowMovement = false;
+        Player.transform.position = GameObject.Find("PlayerChair").transform.position;
+        GameObject.Find("Main Camera").transform.forward = GameObject.Find("PlayerChair").transform.forward;
 
     }
 }

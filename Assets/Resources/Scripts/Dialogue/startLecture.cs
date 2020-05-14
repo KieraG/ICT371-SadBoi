@@ -16,6 +16,8 @@ public class startLecture : DialogueInteractableInterface
             var Waypoint = GameObject.Find("Waypoint");
             Waypoint.GetComponent<Waypoint>().SetPosition(GameObject.Find("DeskTrigger").transform.position);
             Waypoint.GetComponent<Waypoint>().Offset = new Vector3(0,2,0);
+            var DeskTrigger = GameObject.Find("DeskTrigger");
+            DeskTrigger.GetComponent<BoxCollider>().enabled = true;
         };
     }
 
