@@ -1,26 +1,34 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class QuizManager : MonoBehaviour
 {
+    //Array of possible questions
     public Question[] questions;
+    //List of questions that have yet to be answered
     private static List<Question> availableQuestions;
+
+    //Buttons and panels
     public GameObject TrueButton;
     public GameObject FalseButton;
     public GameObject[] OptionButtons;
-    public enum AnswerType
-    {
-        TRUE,
-        FALSE,
-        MULTICHOICE
-    }
+    public GameObject answerPanel;
+    public GameObject questionPanel;
     private Question currentQuestion;
-    // Start is called before the first frame update
+
+    // Whether the result panel is currently displaying
+    private bool displayingAnswerPanel = false;
+
+    //Sets up  initial values and loads questions into the available questions list
     void Start()
     {
+        answerPanel.SetActive(false);
         if ((availableQuestions == null || availableQuestions.Count == 0) && questions.Length != 0)
         {
             foreach (var question in questions)
@@ -30,9 +38,12 @@ public class QuizManager : MonoBehaviour
         }
         GetRandomQuestion();
         EnableSelections();
-        GameObject.Find("QuestionPanel").GetComponentInChildren<Text>().text = currentQuestion.text;
+        questionPanel.GetComponentInChildren<Text>().text = currentQuestion.text;
+        GlobalValues.correctQuestions = 0;
+        GlobalValues.incorrectQuestions = 0;
     }
 
+    //Gets a random question from the list of available questions
     void GetRandomQuestion()
     {
         if (availableQuestions.Count > 0)
@@ -40,6 +51,12 @@ public class QuizManager : MonoBehaviour
             var index = Random.Range(0, availableQuestions.Count);
             currentQuestion = availableQuestions[index];
             availableQuestions.RemoveAt(index);
+        }
+        else
+        {
+            SceneManager.UnloadSceneAsync(5);
+            GlobalValues.quizEnd = true;
+            GlobalValues.finishedQuiz = true;
         }
 
     }
@@ -49,7 +66,7 @@ public class QuizManager : MonoBehaviour
         if (currentQuestion.isMultichoice)
         {
             disableOptions();
-            var optionCount = currentQuestion.multiChoiceOptions.Length;
+            var optionCount = currentQuestion.multiChoiceOptions.Length + 1;
             SetTrueFalse(false);
             enableOptions(optionCount);
         }
@@ -60,107 +77,211 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+    //Enables the correct butttons and panels based on the type of question being given
     private void enableOptions(int num)
     {
-        List<string> answers = new List<string>();
-        answers.Add(currentQuestion.multiChoiceAnswer);
-
-
-        if (num > OptionButtons.Length)
+        List<string> answers = new List<string>
         {
-            num = OptionButtons.Length;
+            currentQuestion.multiChoiceAnswer
+        };
+        List<String> wrongAnswers = new List<string>();
+        wrongAnswers = currentQuestion.multiChoiceOptions.ToList();
+
+        var questionsToAdd = Math.Min(3, currentQuestion.multiChoiceOptions.Length);
+
+
+        for (var i = 0; i < questionsToAdd; i++)
+        {
+            var index = Random.Range(0, wrongAnswers.Count);
+            answers.Add(wrongAnswers[index]);
+            wrongAnswers.RemoveAt(index);
         }
 
-        for (var i = 0; i < num ; i++)
-        {
-            answers.Add(currentQuestion.multiChoiceOptions[i]);
 
+
+        for (int i = 0; i < answers.Count; i++)
+        {
+            string temp = answers[i];
+            int randomIndex = Random.Range(i, answers.Count);
+            answers[i] = answers[randomIndex];
+            answers[randomIndex] = temp;
         }
 
-        for (var i = 0; i < num + 1; i++)
+
+
+        for (var i = 0; i < questionsToAdd + 1; i++)
         {
             OptionButtons[i].SetActive(true);
-            var index = Random.Range(0, answers.Count);
-            OptionButtons[i].GetComponentInChildren<Text>().text = answers[index];
-            answers.RemoveAt(index);
+            OptionButtons[i].GetComponentInChildren<Text>().text = answers[i];
 
         }
 
 
     }
 
+    //Disables the multichoice option buttons
     private void disableOptions()
     {
         foreach (var option in OptionButtons)
         {
-            option.SetActive(false);   
+            option.SetActive(false);
         }
     }
 
+    //Sets the true and false buttons active or inactive
     private void SetTrueFalse(bool setting)
     {
         TrueButton.SetActive(setting);
         FalseButton.SetActive(setting);
     }
 
-    public void SelectAnswer(AnswerType type, int multi = 0)
+    //Selects a multichoice answer at the given index
+    public void SelectAnswer(int multi = 0)
     {
-        if (type == AnswerType.MULTICHOICE)
+
+        if (!currentQuestion.isMultichoice || multi > (currentQuestion.multiChoiceOptions.Length)) return;
+        var answer = OptionButtons[multi].GetComponentInChildren<Text>().text;
+        Debug.Log(answer == currentQuestion.multiChoiceAnswer ? "Correct" : "Wrong");
+        if (answer == currentQuestion.multiChoiceAnswer)
         {
-            if (!currentQuestion.isMultichoice) return;
-            var answer = OptionButtons[multi].GetComponentInChildren<Text>().text;
-            Debug.Log(answer == currentQuestion.multiChoiceAnswer ? "Correct" : "Wrong");
+            CorrectAnswer();
         }
         else
         {
-            if (currentQuestion.isMultichoice) return;
-            if (currentQuestion.isTrue)
-            {
-                Debug.Log(type == AnswerType.TRUE ? "correct" : "wrong");
-            }
-            else
-            {
-                Debug.Log(type == AnswerType.FALSE ? "correct" : "wrong");
-            }
+            WrongAnswer();
         }
+
     }
 
+    //Selects true
     public void UserSelectTrue()
     {
-        SelectAnswer(AnswerType.TRUE);
+        if (currentQuestion.isTrue)
+        {
+            CorrectAnswer();
+        }
+        else
+        {
+            WrongAnswer();
+        }
+        Debug.Log(currentQuestion.isTrue ? "correct" : "wrong");
     }
-
+     //Selectr false
     public void UserSelectFalse()
     {
-        SelectAnswer(AnswerType.FALSE);
+        if (!currentQuestion.isTrue)
+        {
+            CorrectAnswer();
+        }
+        else
+        {
+            WrongAnswer();
+        }
+        Debug.Log(currentQuestion.isTrue ? "Wrong" : "correct");
     }
 
+    //Multichoice option button 1
     public void SelectOption1()
     {
-        SelectAnswer(AnswerType.MULTICHOICE, 0);
+        SelectAnswer(0);
     }
-
+    //Multichoice option button 2
     public void SelectOption2()
     {
-        SelectAnswer(AnswerType.MULTICHOICE, 1);
+        SelectAnswer(1);
     }
+    //Multichoice option button 3
     public void SelectOption3()
     {
-        SelectAnswer(AnswerType.MULTICHOICE, 2);
+        SelectAnswer(2);
     }
+    //Multichoice option button 4
     public void SelectOption4()
     {
-        SelectAnswer(AnswerType.MULTICHOICE, 3);
+        SelectAnswer(3);
+    }
+
+    //Called when a correct answer is given
+    private void CorrectAnswer()
+    {
+        displayingAnswerPanel = true;
+        answerPanel.SetActive(true);
+        answerPanel.GetComponentInChildren<Text>().text = "Correct!\n\n\nPress any key to continue";
+        answerPanel.transform.Find("PanelLayer").GetComponent<Image>().color = Color.green;
+        GlobalValues.correctQuestions++;
+
+    }
+
+    //Called when a wrong answer is given
+    private void WrongAnswer()
+    {
+        displayingAnswerPanel = true;
+        answerPanel.SetActive(true);
+        answerPanel.GetComponentInChildren<Text>().text = "Incorrect!\n\n\nPress any key to continue";
+        answerPanel.transform.Find("PanelLayer").GetComponent<Image>().color = Color.red;
+        GlobalValues.incorrectQuestions++;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (Input.anyKeyDown)
-        //{
-        //    GetRandomQuestion();
-        //    EnableSelections();
-        //    GameObject.Find("QuestionPanel").GetComponentInChildren<Text>().text = currentQuestion.text;
-        //}
+        if (displayingAnswerPanel)
+        {
+            if (Input.anyKeyDown)
+            {
+                answerPanel.SetActive(false);
+                displayingAnswerPanel = false;
+                GetRandomQuestion();
+                EnableSelections();
+                questionPanel.GetComponentInChildren<Text>().text = currentQuestion.text;
+            }
+        }
+        else
+        {
+            //Xbox button A
+            if (Input.GetKeyDown("joystick button 0"))
+            {
+                if (currentQuestion.isMultichoice)
+                {
+                    SelectOption1();
+                }
+                else
+                {
+                    UserSelectTrue();
+                }
+            }
+            //Xbox button B
+            if (Input.GetKeyDown("joystick button 1"))
+            {
+                if (currentQuestion.isMultichoice)
+                {
+                    SelectOption2();
+                }
+                else
+                {
+                    UserSelectFalse();
+                }
+            }
+            //Xbox button X
+            if (Input.GetKeyDown("joystick button 2"))
+            {
+                if (currentQuestion.isMultichoice)
+                {
+                    SelectOption3();
+                }
+
+            }
+            //Xbox button Y
+            if (Input.GetKeyDown("joystick button 3"))
+            {
+                if (currentQuestion.isMultichoice)
+                {
+                    SelectOption4();
+                }
+
+            }
+        }
+
+
     }
 }
