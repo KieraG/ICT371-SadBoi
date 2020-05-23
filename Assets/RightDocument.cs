@@ -17,8 +17,6 @@ public class RightDocument : MonoBehaviour
     void OnMouseDown()
     {
         changeDocument.changeDocument = true;
-
-        Debug.Log(changeDocument.currentDate.tag != changeDocument.incorrectDate && changeDocument.currentLogo.tag != changeDocument.incorrectLogo && changeDocument.currentSignature.tag != changeDocument.incorrectSignature);
     
         if (changeDocument.currentDate.tag != changeDocument.incorrectDate && changeDocument.currentLogo.tag != changeDocument.incorrectLogo && changeDocument.currentSignature.tag != changeDocument.incorrectSignature)
         {

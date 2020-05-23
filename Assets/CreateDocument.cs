@@ -12,6 +12,8 @@ public class CreateDocument : MonoBehaviour
     public TMP_Text timerText;
     public GameObject endscreen = null;
 
+    public TransitionMinigame transitionToNext = null;  
+    
     [HideInInspector]
     public bool changeDocument = true;
 
@@ -44,7 +46,7 @@ public class CreateDocument : MonoBehaviour
 
     private bool firstInfoWindow = true;
 
-
+    private float lockoutTimer = 2;
 
     void Start()
     {
@@ -71,6 +73,10 @@ public class CreateDocument : MonoBehaviour
         if (wrongCounter == 3)
         {
             endscreen.SetActive(true);
+            lockoutTimer -= Time.deltaTime;
+            PlayerPrefs.SetInt("scoreCounter", -1);
+            if (lockoutTimer <= 0)
+                transitionToNext.continueOn = true;
         }
 
         if (!infoScreen.isActiveAndEnabled && firstInfoWindow)
@@ -93,7 +99,15 @@ public class CreateDocument : MonoBehaviour
                 changeDocument = false;
             }
 
-            timer -= Time.deltaTime;
+
+            if (timer <= 0)
+            {
+                transitionToNext.continueOn = true;
+                PlayerPrefs.SetInt("scoreCounter", -1);
+            }
+
+            else
+                timer -= Time.deltaTime;
 
             timerText.text = timer.ToString("F1");
 
