@@ -6074,7 +6074,7 @@ MonoBehaviour:
   busTransition: {fileID: 712916234}
   player: {fileID: 1394528528}
   continueOn: 1
-  sceneNumber: 2
+  sceneNumber: 4
 --- !u!1001 &211438423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47073,7 +47073,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4781992175852160, guid: b1177e18354fd6d47a8cefb32959d8aa, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0192847
+      value: 0.6942188
       objectReference: {fileID: 0}
     - target: {fileID: 4781992175852160, guid: b1177e18354fd6d47a8cefb32959d8aa, type: 3}
       propertyPath: m_LocalRotation.z
@@ -47089,11 +47089,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4781992175852160, guid: b1177e18354fd6d47a8cefb32959d8aa, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99981403
+      value: 0.719764
       objectReference: {fileID: 0}
     - target: {fileID: 4781992175852160, guid: b1177e18354fd6d47a8cefb32959d8aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 2.21
+      value: 87.93
       objectReference: {fileID: 0}
     - target: {fileID: 4781992175852160, guid: b1177e18354fd6d47a8cefb32959d8aa, type: 3}
       propertyPath: m_LocalPosition.y
