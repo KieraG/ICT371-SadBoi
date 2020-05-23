@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7794409680784631270}
   - component: {fileID: 501279136878720597}
   - component: {fileID: 2312338898217645451}
-  - component: {fileID: 2698872820517814946}
   m_Layer: 0
   m_Name: Date1
   m_TagString: Date1
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1342270816983281909}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: -13.586857, y: 1.6906155, z: -4.1625977}
-  m_LocalScale: {x: 0.015408454, y: 0.0070532756, z: 0.0070532756}
+  m_LocalScale: {x: 0.01540845, y: 0.007053276, z: 0.007053276}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -95,18 +94,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &2698872820517814946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342270816983281909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1b1f3f60b8b94b4d9751f6e280dff21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  changeDocument: {fileID: 0}
-  score: {fileID: 0}
-  numberOfWarnings: {fileID: 0}

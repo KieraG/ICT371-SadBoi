@@ -18,6 +18,8 @@ public class RightDocument : MonoBehaviour
     {
         changeDocument.changeDocument = true;
 
+        Debug.Log(changeDocument.currentDate.tag != changeDocument.incorrectDate && changeDocument.currentLogo.tag != changeDocument.incorrectLogo && changeDocument.currentSignature.tag != changeDocument.incorrectSignature);
+    
         if (changeDocument.currentDate.tag != changeDocument.incorrectDate && changeDocument.currentLogo.tag != changeDocument.incorrectLogo && changeDocument.currentSignature.tag != changeDocument.incorrectSignature)
         {
             changeDocument.scoreCounter++;

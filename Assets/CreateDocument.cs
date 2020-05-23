@@ -73,8 +73,8 @@ public class CreateDocument : MonoBehaviour
             endscreen.SetActive(true);
         }
 
-        //if (!infoScreen.activeSelf && !firstInfoWindow)
-        //{
+        if (!infoScreen.isActiveAndEnabled && firstInfoWindow)
+        {
             if (changeDocument)
             {
                 //Destroy(currentObj);
@@ -97,8 +97,7 @@ public class CreateDocument : MonoBehaviour
 
             timerText.text = timer.ToString("F1");
 
-            firstInfoWindow = false;
-        //}
+        }
            
     }
 }
