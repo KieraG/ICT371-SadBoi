@@ -11,8 +11,9 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    //A delegate used to call a function when a dialogue line runs
     public delegate void DoAction();
-    // Queue of all currently-queued dialogue
+    // Queue of all currently-queued dialogue and delegates
     private Queue<Tuple<string, DoAction>> dialogQueue = new Queue<Tuple<string, DoAction>>();
 
     // Canvas the display text should be contained within
@@ -40,7 +41,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    // Display the latest dialogue
+    // Display the latest dialogue and runs the attached delegate
     private void DisplayDialogue(Tuple<string, DoAction> dialogue)
     {
         dialogueCanvas.SetActive(true);

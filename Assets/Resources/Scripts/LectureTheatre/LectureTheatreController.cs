@@ -9,6 +9,7 @@ public class LectureTheatreController : MonoBehaviour
     private GameObject Waypoint = null;
     private GameObject Desk = null;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,16 @@ public class LectureTheatreController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        //Allows movement again after the quiz has finished
+        if (GlobalValues.quizEnd)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            GameObject.Find("Main Character").GetComponent<PlayerController>().AllowMovement = true;
+            GameObject.Find("Main Character").GetComponent<PlayerController>().AllowLooking = true;
+            GameObject.Find("Main Character").GetComponent<PlayerController>().AllowInteraction = true;
+            GlobalValues.quizEnd = false;
+            Professor.GetComponent<startLecture>().QuizEnd();
+        }
         
     }
 

@@ -36,6 +36,7 @@ public class Waypoint : MonoBehaviour
         this.transform.position = newPosition + Offset;
     }
 
+    //Generates a sin wave to use as the Y position so that the waypoint appears to float
     float SinWave(float time, float phase = 0)
     {
         return Amplitude * Mathf.Sin(2 * Mathf.PI * Frequency * time + phase);

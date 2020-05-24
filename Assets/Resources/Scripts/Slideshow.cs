@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Used to create a slideshow with images
 public class Slideshow : MonoBehaviour
 {
     private Renderer m_Renderer;
@@ -10,7 +11,7 @@ public class Slideshow : MonoBehaviour
     [SerializeField]
     private int CurrentSlide = 0;
 
-
+    //Changes the texture to the next image in the array
     public void NextSlide()
     {
         if (CurrentSlide == Slides.Count - 1)
@@ -26,6 +27,7 @@ public class Slideshow : MonoBehaviour
 
     }
 
+    //Changes the texture to the previous image in the array
     public void PreviousSlide()
     {
         if (CurrentSlide == 0)
@@ -39,18 +41,20 @@ public class Slideshow : MonoBehaviour
 
         UpdateScreen();
     }
-
+    //Goes to the first slide
     public void FirstSlide()
     {
         CurrentSlide = 0;
         UpdateScreen();
     }
 
+    //Adds a slide to the array
     public void AddSlide(Texture slideTexture)
     {
         Slides.Add(slideTexture);
     }
 
+    //Adds a slide to the array at the given position
     public void AddSlide(Texture slideTexture, int position)
     {
         Slides.Insert(position, slideTexture);
