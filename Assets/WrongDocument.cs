@@ -19,7 +19,7 @@ public class WrongDocument : MonoBehaviour
     {
         changeDocument.changeDocument = true;
 
-        if (changeDocument.currentDate.tag == changeDocument.incorrectDate || changeDocument.currentLogo.tag == changeDocument.incorrectLogo || changeDocument.currentSignature.tag == changeDocument.incorrectSignature)
+        if (changeDocument.currentDate.tag == changeDocument.incorrectDate || changeDocument.currentLogo.tag == changeDocument.incorrectLogo || changeDocument.currentSignature.tag == changeDocument.incorrectSignature || changeDocument.total != changeDocument.fakeTotal)
         {
             changeDocument.scoreCounter++;
             score.text = changeDocument.scoreCounter.ToString();

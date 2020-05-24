@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour
     private float gravityForce = 9.807f;
     private Vector3 startPos = new Vector3(0,0,0);
 
-    float mouseX = 0;
-    float mouseY = 0;
+    public float mouseX = 0;
+    public float mouseY = 0;
 
     public DialogueManager dialogueManager = null;
 

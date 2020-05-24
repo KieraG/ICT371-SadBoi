@@ -8,6 +8,8 @@ public class CreateDocument : MonoBehaviour
     public GameObject[] logoComponents = null;
     public GameObject[] dateComponents = null;
     public GameObject[] signatureComponents = null;
+    public TMP_Text[] items = null;
+    public GameObject spreadSheet = null;
 
     public TMP_Text timerText;
     public GameObject endscreen = null;
@@ -38,15 +40,23 @@ public class CreateDocument : MonoBehaviour
     [HideInInspector]
     public int wrongCounter = 0;
 
-    private float timer = 60;
-
     [SerializeField]
     private InformationScreen infoScreen = null;
 
 
     private bool firstInfoWindow = true;
 
+    [SerializeField]
+    private float timer = 60;
+
     private float lockoutTimer = 2;
+    private bool createSpreadSheet = true;
+
+    private int itemNum1, itemNum2, itemNum3 = 0;
+    
+    [HideInInspector]
+    public int total, fakeTotal = 0;
+
 
     void Start()
     {
@@ -85,16 +95,40 @@ public class CreateDocument : MonoBehaviour
             {
                 //Destroy(currentObj);
                 //currentObj = Instantiate(documentComponents[(int)Random.Range(0, documentComponents.Length)]);
+                if (createSpreadSheet)
+                {
+                    Instantiate(spreadSheet);
+                    createSpreadSheet = false;
+                }
 
                 Destroy(currentLogo);
                 Destroy(currentDate);
                 Destroy(currentSignature);
+                total = 0;
+                fakeTotal = 0;
 
                 currentLogo = Instantiate(logoComponents[(int)Random.Range(0, logoComponents.Length)]);
 
                 currentDate = Instantiate(dateComponents[(int)Random.Range(0, dateComponents.Length)]);
 
                 currentSignature = Instantiate(signatureComponents[(int)Random.Range(0, signatureComponents.Length)]);
+
+                itemNum1 = (int)Random.Range(0, 10);
+                itemNum2 = (int)Random.Range(0, 10);
+                itemNum3 = (int)Random.Range(0, 10);
+
+                items[0].text = itemNum1.ToString();
+                items[1].text = itemNum2.ToString();
+                items[2].text = itemNum3.ToString();
+
+                total = itemNum1 + itemNum2 + itemNum3;
+
+                if ((int)Random.Range(0, 10) == 1)
+                    fakeTotal = total + (int)Random.Range(1, 10);
+                else
+                    fakeTotal = total;
+
+                items[3].text = fakeTotal.ToString();
 
                 changeDocument = false;
             }
@@ -103,7 +137,7 @@ public class CreateDocument : MonoBehaviour
             if (timer <= 0)
             {
                 transitionToNext.continueOn = true;
-                PlayerPrefs.SetInt("scoreCounter", -1);
+                PlayerPrefs.SetInt("scoreCounter", scoreCounter);
             }
 
             else
