@@ -69,4 +69,5 @@ public class DialogueManager : MonoBehaviour
     {
         dialogQueue.Clear();
     }
+
 }

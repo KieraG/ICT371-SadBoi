@@ -6,8 +6,12 @@ public class EndOfMinigame : MonoBehaviour
 {
     public DialogueManager dialogueManager;
 
+    [SerializeField]
+    private PlayerController pc = null;
     void Start()
     {
+        pc.allowMove = false;
+
         if (PlayerPrefs.GetInt("scoreCounter") == -1)
         {
             dialogueManager.Enqueue("Boss: I am very dissapointed in you! You accepted and passed through 3 incorrect documents! This will cost a lot of time and money for the company to fix your mistakes.");
@@ -37,11 +41,15 @@ public class EndOfMinigame : MonoBehaviour
         }
 
 
+
     }
 
     void Update()
     {
-
+        if (!dialogueManager.DialogQueued())
+        {
+            pc.allowMove = true;
+        }
     }
 
 }

@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private float gravityForce = 9.807f;
     private Vector3 startPos = new Vector3(0,0,0);
 
+    //Public to allow the starting rotation of the character - Kye
     public float mouseX = 0;
     public float mouseY = 0;
 
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     private DialogueInteractableInterface[] dialogueInteractables = null;
 
+    public bool allowMove = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,8 +39,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Rotate();
+        //Stops movement while dialogue is occuring - Kye
+        if (allowMove)
+        {
+            Rotate();
+        }
+
         Move();
+        
+
+
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
@@ -72,7 +82,7 @@ public class PlayerController : MonoBehaviour
     void Move()
     {
 
-        if (characterController.isGrounded)
+        if (characterController.isGrounded && allowMove)
         {
             //get the forward movement
             Vector3 forwardMovement = transform.forward * Input.GetAxisRaw("Vertical");

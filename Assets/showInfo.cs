@@ -5,8 +5,15 @@ using UnityEngine;
 public class showInfo : MonoBehaviour
 {
     [SerializeField]
-    private GameObject window;
-    
+    private GameObject window = null;
+
+    [SerializeField]
+    private RightDocument stopApprove = null;
+
+    [SerializeField]
+    private WrongDocument stopTrash = null;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +30,8 @@ public class showInfo : MonoBehaviour
     {
         window.SetActive(true);
         window.GetComponent<InformationScreen>().SetImageActive();
+        stopApprove.infoScreen = true;
+        stopTrash.infoScreen = true;
     }
 
 }

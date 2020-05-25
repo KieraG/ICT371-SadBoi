@@ -11,6 +11,11 @@ public class InformationScreen : MonoBehaviour
     [HideInInspector]
     public GameObject infoSignature = null;
 
+    [SerializeField]
+    private RightDocument stopApprove = null;
+
+    [SerializeField]
+    private WrongDocument stopTrash = null;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +47,9 @@ public class InformationScreen : MonoBehaviour
         infoLogo.SetActive(false);
         infoDate.SetActive(false);
         infoSignature.SetActive(false);
+        stopApprove.infoScreen = false;
+        stopTrash.infoScreen = false;
+
     }
 
     public void SetImageActive()
