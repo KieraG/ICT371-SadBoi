@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/scene-3-2.unity
     guid: 30323d567e0af2049ab4c46e3274ac15
+  - enabled: 1
+    path: Assets/Scenes/LectureQuiz.unity
+    guid: b5db07acd677eb54480d382b2dc4884b
   m_configObjects: {}
