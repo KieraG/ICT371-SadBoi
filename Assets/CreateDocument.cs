@@ -60,6 +60,8 @@ public class CreateDocument : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+
         GameObject temp;
 
         temp = logoComponents[(int)Random.Range(0, logoComponents.Length)];
@@ -85,8 +87,16 @@ public class CreateDocument : MonoBehaviour
             endscreen.SetActive(true);
             lockoutTimer -= Time.deltaTime;
             PlayerPrefs.SetInt("scoreCounter", -1);
+
+            Destroy(currentLogo);
+            Destroy(currentDate);
+            Destroy(currentSignature);
+
+            Cursor.lockState = CursorLockMode.Locked;
             if (lockoutTimer <= 0)
                 transitionToNext.continueOn = true;
+
+           
         }
 
         if (!infoScreen.isActiveAndEnabled && firstInfoWindow)
@@ -138,6 +148,7 @@ public class CreateDocument : MonoBehaviour
             {
                 transitionToNext.continueOn = true;
                 PlayerPrefs.SetInt("scoreCounter", scoreCounter);
+                Cursor.lockState = CursorLockMode.Locked;
             }
 
             else
