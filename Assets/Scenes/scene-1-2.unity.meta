@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scenes/scene-1-2.unity.meta
 guid: 449e55097e4b04541acff2ae8c1e0c5c
+=======
+guid: 878c987a122b32de596cc8092ffd283e
+folderAsset: yes
+>>>>>>> develop:Assets/Christo Assets.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
