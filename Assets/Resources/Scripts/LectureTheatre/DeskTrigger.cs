@@ -17,7 +17,7 @@ public class DeskTrigger : MonoBehaviour
             Player.transform.position = GameObject.Find("PlayerChair").transform.position;
             GameObject.Find("Main Camera").transform.forward = GameObject.Find("PlayerChair").transform.forward;
 
-            SceneManager.LoadScene(7, LoadSceneMode.Additive);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Additive);
             Cursor.lockState = CursorLockMode.None;
         }
 

@@ -38,7 +38,16 @@ public class InformationScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown("joystick button 0"))
+        {
+            gameObject.SetActive(false);
+            infoLogo.SetActive(false);
+            infoDate.SetActive(false);
+            infoSignature.SetActive(false);
+            stopApprove.infoScreen = false;
+            stopTrash.infoScreen = false;
+        }
+
     }
 
     private void OnMouseDown()

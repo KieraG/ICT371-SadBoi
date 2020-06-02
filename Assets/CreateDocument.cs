@@ -57,6 +57,8 @@ public class CreateDocument : MonoBehaviour
     [HideInInspector]
     public int total, fakeTotal = 0;
 
+    [HideInInspector]
+    public bool timerStart = false;
 
     void Start()
     {
@@ -101,6 +103,8 @@ public class CreateDocument : MonoBehaviour
 
         if (!infoScreen.isActiveAndEnabled && firstInfoWindow)
         {
+            timerStart = true;
+
             if (changeDocument)
             {
                 //Destroy(currentObj);
@@ -143,6 +147,10 @@ public class CreateDocument : MonoBehaviour
                 changeDocument = false;
             }
 
+        }
+
+        if (timerStart)
+        {
 
             if (timer <= 0)
             {
@@ -155,7 +163,6 @@ public class CreateDocument : MonoBehaviour
                 timer -= Time.deltaTime;
 
             timerText.text = timer.ToString("F1");
-
         }
            
     }

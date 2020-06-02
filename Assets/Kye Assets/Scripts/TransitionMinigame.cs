@@ -49,7 +49,7 @@ public class TransitionMinigame : MonoBehaviour
 
             if (busTransition.GetComponent<CanvasGroup>().alpha >= 1)
             {
-                SceneManager.LoadScene(sceneNumber, LoadSceneMode.Single);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
                 //player.transform.position = player.GetComponent<PlayerController>().getStartPos(); //This here is used to do the reverse transtion. However when going to a new scene, all scripts are canceled (unless specifically work around it). Thus Fade on new scene is used instead.
                 //StartCoroutine(FadeOutTime());
                 yield return null;
