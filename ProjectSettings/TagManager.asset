@@ -5,6 +5,20 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Screen
+  - Logo
+  - Logo1
+  - Logo2
+  - Logo3
+  - Signature
+  - Signature1
+  - Signature2
+  - Signature3
+  - Date
+  - Date1
+  - Date2
+  - Date3
+  - InfoWindow
   layers:
   - Default
   - TransparentFX

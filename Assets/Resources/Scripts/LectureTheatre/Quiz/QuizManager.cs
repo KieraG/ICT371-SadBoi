@@ -54,7 +54,7 @@ public class QuizManager : MonoBehaviour
         }
         else
         {
-            SceneManager.UnloadSceneAsync(5);
+            SceneManager.UnloadSceneAsync(7);
             GlobalValues.quizEnd = true;
             GlobalValues.finishedQuiz = true;
         }

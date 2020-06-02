@@ -562,7 +562,7 @@ MonoBehaviour:
   busTransition: {fileID: 128324274}
   player: {fileID: 1576704896}
   continueOn: 1
-  sceneNumber: 0
+  sceneNumber: 5
 --- !u!1 &116902539 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1526665992311050, guid: 557244deb7e8d444197b5b6fd8e650a9,
@@ -6253,28 +6253,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1825335110}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1046540485 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1716488393832562, guid: 73183991b54197e4bb1b055be34ffc6a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1939738382}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1046540486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046540485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa066f6129b373f41847de9540dcfdd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  busTransition: {fileID: 128324274}
-  player: {fileID: 1576704896}
-  continueOn: 1
-  sceneNumber: 1
 --- !u!1001 &1060805576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8978,28 +8956,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e7c466609753eb4ba294a4868df1527, type: 3}
---- !u!1 &1525366371 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1716488393832562, guid: 73183991b54197e4bb1b055be34ffc6a,
-    type: 3}
-  m_PrefabInstance: {fileID: 731690935}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1525366372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1525366371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa066f6129b373f41847de9540dcfdd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  busTransition: {fileID: 128324274}
-  player: {fileID: 1576704896}
-  continueOn: 1
-  sceneNumber: 1
 --- !u!1001 &1536656328
 PrefabInstance:
   m_ObjectHideFlags: 0
