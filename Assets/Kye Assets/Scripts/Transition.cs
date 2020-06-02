@@ -11,8 +11,6 @@ public class Transition : MonoBehaviour
     [Tooltip("Simple boolean that controls whether or not the transition is active. Have this set to false if you want to wait for an event to occur before the transition is allowed, then set it ture once the event is completed.")]
     public bool continueOn = false;
 
-    [Tooltip("Set this to the number position of the scene you want to transition to is to. Eg. the first scene = 0.")]
-    public int sceneNumber = 0;
     private Color tempColor;
 
 
@@ -59,7 +57,7 @@ public class Transition : MonoBehaviour
 
             if (busTransition.GetComponent<CanvasGroup>().alpha >= 1)
             {
-                SceneManager.LoadScene(sceneNumber, LoadSceneMode.Single);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
                 //player.transform.position = player.GetComponent<PlayerController>().getStartPos(); //This here is used to do the reverse transtion. However when going to a new scene, all scripts are canceled (unless specifically work around it). Thus Fade on new scene is used instead.
                 //StartCoroutine(FadeOutTime());
                 yield return null;

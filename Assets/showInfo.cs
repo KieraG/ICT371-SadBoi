@@ -23,7 +23,14 @@ public class showInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown("joystick button 0"))
+        {
+            window.SetActive(true);
+            window.GetComponent<InformationScreen>().SetImageActive();
+            stopApprove.infoScreen = true;
+            stopTrash.infoScreen = true;
+        }
+
     }
 
     private void OnMouseDown()
