@@ -5,6 +5,12 @@ using UnityEngine;
 public class FoundFriendTalk : DialogueInteractableInterface
 {
     private bool hadConversation = false;
+
+    public DialogueManager mang;
+
+    [SerializeField]
+    private PlayerController pc = null;
+
     void Start()
     {
 
@@ -19,6 +25,8 @@ public class FoundFriendTalk : DialogueInteractableInterface
     {
         if (!hadConversation)
         {
+            pc.AllowLooking = false;
+            pc.AllowMovement = false;
 
             dialogueManager.Enqueue("Good Friend 2: Woah, long time no see! How crazy is this protest! Hopefully something good will come out of it! ");
             dialogueManager.Enqueue("Me: Yeah its incredible, however our friend sent me to find you, so you should probably go back to her.");
@@ -37,6 +45,12 @@ public class FoundFriendTalk : DialogueInteractableInterface
         else
         {
             dialogueManager.Enqueue("Just follow the arrow my friend.");
+        }
+
+        if (!mang.DialogQueued())
+        {
+            pc.AllowLooking = true;
+            pc.AllowMovement = true;
         }
     }
 }

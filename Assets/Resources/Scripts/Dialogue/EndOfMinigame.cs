@@ -8,10 +8,13 @@ public class EndOfMinigame : MonoBehaviour
 
     [SerializeField]
     private PlayerController pc = null;
+
+    [SerializeField]
+    private Canvas transition;
     void Start()
     {
-        pc.allowMove = false;
-
+        pc.AllowLooking = false;
+        pc.AllowMovement = false;
         if (PlayerPrefs.GetInt("scoreCounter") == -1)
         {
             dialogueManager.Enqueue("Boss: I am very dissapointed in you! You accepted and passed through 3 incorrect documents! This will cost a lot of time and money for the company to fix your mistakes.");
@@ -48,7 +51,8 @@ public class EndOfMinigame : MonoBehaviour
     {
         if (!dialogueManager.DialogQueued())
         {
-            pc.allowMove = true;
+            pc.AllowLooking = true;
+            pc.AllowMovement = true;
         }
     }
 
