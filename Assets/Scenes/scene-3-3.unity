@@ -444,13 +444,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 110049910}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa066f6129b373f41847de9540dcfdd8, type: 3}
+  m_Script: {fileID: 11500000, guid: bc9599edebfb9f94fa3033c6e58789d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  busTransition: {fileID: 0}
-  player: {fileID: 0}
-  continueOn: 1
-  sceneNumber: 0
+  busTransition: {fileID: 1114176678}
+  player: {fileID: 454088241}
 --- !u!1 &116902539 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1526665992311050, guid: 557244deb7e8d444197b5b6fd8e650a9,
@@ -575,7 +573,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142465013}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.163}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1617}
   m_LocalScale: {x: 0.02421664, y: 0.02421664, z: 0.021194646}
   m_Children: []
   m_Father: {fileID: 1962072596}
@@ -1176,7 +1174,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272857866}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.163}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1617}
   m_LocalScale: {x: 0.02421664, y: 0.02421664, z: 0.021194646}
   m_Children: []
   m_Father: {fileID: 1962072596}
@@ -1675,7 +1673,7 @@ Transform:
   - {fileID: 1114176674}
   - {fileID: 2026853814}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &459964086
 GameObject:
@@ -2644,7 +2642,7 @@ Transform:
   m_LocalScale: {x: 0.08444483, y: 0.0070532775, z: 0.051571567}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!1001 &910446092
 PrefabInstance:
@@ -2795,64 +2793,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &935362413
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 935362416}
-  - component: {fileID: 935362415}
-  - component: {fileID: 935362414}
-  m_Layer: 0
-  m_Name: WorkAreaCollision
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &935362414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935362413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dad7123aaaea8d845968c8ef4fd4a526, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mang: {fileID: 1967131645}
---- !u!65 &935362415
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935362413}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.21648788, y: 1, z: 1.4299788}
-  m_Center: {x: 0.17636013, y: 0, z: 0.21498942}
---- !u!4 &935362416
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935362413}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.961, y: 0.70207405, z: -6.376}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &939774552
 GameObject:
   m_ObjectHideFlags: 0
@@ -3110,7 +3050,6 @@ MonoBehaviour:
   busTransition: {fileID: 0}
   player: {fileID: 0}
   continueOn: 1
-  sceneNumber: 1
 --- !u!1 &1048178804
 GameObject:
   m_ObjectHideFlags: 0
@@ -3170,8 +3109,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: I need you to check as many documents as you can before the time runs out!
     If the document contains any of the things below or the spreadsheet total doesn't
-    add up correctly, click on the trash, else approve it. 3 wrong and we lock your
-    computer!
+    add up correctly, click on the trash (Press X on controller), else approve it 
+    (Press B on controller). 3 wrong and we lock your computer! Press the question
+    mark button (Press A on controller) to this hint again! Press the X at the top
+    of the window (Press A on controller) to continue!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3199,8 +3140,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 6
-  m_fontSizeBase: 6
+  m_fontSize: 4.5
+  m_fontSizeBase: 4.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3216,7 +3157,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 56
+  m_firstOverflowCharacterIndex: 157
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -3240,12 +3181,12 @@ MonoBehaviour:
   m_margin: {x: 10.687839, y: 0, z: -6.993428, w: 3.8290548}
   m_textInfo:
     textComponent: {fileID: 1048178806}
-    characterCount: 246
+    characterCount: 444
     spriteCount: 0
-    spaceCount: 46
-    wordCount: 47
+    spaceCount: 83
+    wordCount: 83
     linkCount: 0
-    lineCount: 5
+    lineCount: 6
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -3343,7 +3284,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1114176674
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4241,6 +4182,7 @@ MonoBehaviour:
   timer: 60
   total: 0
   fakeTotal: 0
+  timerStart: 0
 --- !u!1001 &1459782432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4391,7 +4333,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516377761}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.163}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1617}
   m_LocalScale: {x: 0.02421664, y: 0.02421664, z: 0.021194646}
   m_Children: []
   m_Father: {fileID: 1962072596}
@@ -4589,7 +4531,6 @@ MonoBehaviour:
   busTransition: {fileID: 0}
   player: {fileID: 0}
   continueOn: 1
-  sceneNumber: 1
 --- !u!1001 &1572649332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5773,7 +5714,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790944630}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.163}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1617}
   m_LocalScale: {x: 0.02421664, y: 0.02421664, z: 0.021194646}
   m_Children: []
   m_Father: {fileID: 1962072596}
@@ -6155,7 +6096,7 @@ Transform:
   - {fileID: 272857867}
   - {fileID: 1790944631}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1967131644
 GameObject:
