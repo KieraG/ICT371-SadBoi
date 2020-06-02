@@ -2974,10 +2974,10 @@ MonoBehaviour:
     m_MinSize: 10
     m_MaxSize: 113
     m_Alignment: 4
-    m_AlignByGeometry: 0
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Correctness Text
 --- !u!222 &1144149316
@@ -5844,7 +5844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2059573855
 RectTransform:
   m_ObjectHideFlags: 0

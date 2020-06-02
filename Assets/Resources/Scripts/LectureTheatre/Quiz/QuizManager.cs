@@ -217,7 +217,16 @@ public class QuizManager : MonoBehaviour
     {
         displayingAnswerPanel = true;
         answerPanel.SetActive(true);
-        answerPanel.GetComponentInChildren<Text>().text = "Incorrect!\n\n\nPress any key to continue";
+        if (currentQuestion.isMultichoice)
+        {
+            answerPanel.GetComponentInChildren<Text>().text = "Incorrect!\n\nThe correct answer is\n" + currentQuestion.multiChoiceAnswer + "\n\nPress any key to continue";
+
+        }
+        else
+        {
+            answerPanel.GetComponentInChildren<Text>().text = "Incorrect!\n\nThe correct answer is\n" + currentQuestion.isTrue + "\n\nPress any key to continue";
+        }
+
         answerPanel.transform.Find("PanelLayer").GetComponent<Image>().color = Color.red;
         GlobalValues.incorrectQuestions++;
     }
