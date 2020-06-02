@@ -9,7 +9,12 @@ public class StartBoss : MonoBehaviour
     [SerializeField]
     private PlayerController pc = null;
 
-    private bool hadConversation = false;
+    [SerializeField]
+    private GameObject boss = null;
+
+    [SerializeField]
+    private Camera mainCamera = null;
+
     void Start()
     {
 
@@ -24,6 +29,12 @@ public class StartBoss : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            Vector3 bossLook = new Vector3(pc.gameObject.transform.position.x, boss.transform.position.y, pc.gameObject.transform.position.z);
+            Vector3 playerLook = new Vector3(boss.transform.position.x + 5, pc.gameObject.transform.position.y, boss.transform.position.z);
+
+            boss.transform.LookAt(bossLook);
+            mainCamera.transform.LookAt(playerLook);
+
 
             pc.AllowLooking = false;
             pc.AllowMovement = false;
@@ -33,7 +44,6 @@ public class StartBoss : MonoBehaviour
             dialogueManager.Enqueue("Me: I will then ask whether or not I can return to the climate change rally, as it is important issue that needs to be changed, and everyone person is needed at the rally.");
             dialogueManager.Enqueue("Boss: I can't let you go as you need to stay late. I will then go on about that the climate change isn't a problem and you must sacrafice it if you want to get anywhere in life.");
             dialogueManager.Enqueue("Boss: Now go to your desk and start working. Its the one with the hotdog in it.");
-            hadConversation = true;
             Destroy(gameObject);
         }
         /*else

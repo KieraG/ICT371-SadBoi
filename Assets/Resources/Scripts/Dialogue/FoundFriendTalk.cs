@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FoundFriendTalk : DialogueInteractableInterface
 {
-    private bool hadConversation = false;
+    public bool hadConversation = false;
 
     public DialogueManager mang;
 
@@ -25,6 +25,9 @@ public class FoundFriendTalk : DialogueInteractableInterface
     {
         if (!hadConversation)
         {
+            Vector3 look = new Vector3(pc.gameObject.transform.position.x, this.transform.position.y, pc.gameObject.transform.position.z);
+            transform.LookAt(look);
+
             pc.AllowLooking = false;
             pc.AllowMovement = false;
 
