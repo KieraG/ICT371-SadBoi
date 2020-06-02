@@ -7,7 +7,7 @@ public class DeskTrigger : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        //Stops the player from moving and starts the quiz
+        //Stops the player from moving and starts the quizher
         if (!GlobalValues.finishedQuiz)
         {
             GameObject.Find("Waypoint").GetComponentInChildren<Renderer>().enabled = false;
@@ -17,7 +17,7 @@ public class DeskTrigger : MonoBehaviour
             Player.transform.position = GameObject.Find("PlayerChair").transform.position;
             GameObject.Find("Main Camera").transform.forward = GameObject.Find("PlayerChair").transform.forward;
 
-            SceneManager.LoadScene(5, LoadSceneMode.Additive);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Additive);
             Cursor.lockState = CursorLockMode.None;
         }
 
