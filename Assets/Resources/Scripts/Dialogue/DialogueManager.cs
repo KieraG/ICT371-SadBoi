@@ -22,6 +22,9 @@ public class DialogueManager : MonoBehaviour
     // Whether to run the action  associated with the dialogue
     private bool InvokeAction = true;
 
+    public bool showSpeakerText = false;
+    public bool hideOwnDialogue = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +50,21 @@ public class DialogueManager : MonoBehaviour
         dialogueCanvas.SetActive(true);
         var speaker = GetSpeaker(dialogue.Item1);
         int textIndex = dialogue.Item1.IndexOf(":", StringComparison.Ordinal);
-        dialogueCanvas.GetComponentInChildren<TextMeshProUGUI>().text = dialogue.Item1.Substring(textIndex + 1);
+        if (showSpeakerText)
+        {
+            if (hideOwnDialogue && speaker == "Me")
+            {
+                dialogueCanvas.GetComponentInChildren<TextMeshProUGUI>().text = dialogue.Item1.Substring(textIndex + 1);
+            }
+            else
+            {
+                dialogueCanvas.GetComponentInChildren<TextMeshProUGUI>().text = dialogue.Item1;
+            }
+        }
+        else
+        {
+            dialogueCanvas.GetComponentInChildren<TextMeshProUGUI>().text = dialogue.Item1.Substring(textIndex + 1);
+        }
 
         if (InvokeAction)
         {

@@ -14,7 +14,6 @@ public class PickUpObject : MonoBehaviour
 		{
 			hasPlayer = true;
 		}
-		
 	}
 
 	void OnTriggerExit(Collider other)

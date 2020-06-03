@@ -20,7 +20,7 @@ public class WilliamInteraction : DialogueInteractableInterface
         scene4State = GameObject.Find("State");
     }
     
-    void OnTriggerExit(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (jobGiven && jobInitialised && !jobComplete && other.gameObject.name == "WilliamPaper")
         {
@@ -38,8 +38,6 @@ public class WilliamInteraction : DialogueInteractableInterface
     // Determines what to do when the action is triggered
     public override void TriggerAction()
     {
-        Debug.Log("trigger william action");
-        Debug.Log(jobGiven);
         if (jobGiven)
         {
             if (!jobInitialised)
@@ -55,8 +53,11 @@ public class WilliamInteraction : DialogueInteractableInterface
             {
                 if (!jobComplete)
                 {
-                    dialogueManager.Enqueue(
-                        "William: Hey boss, I still need that information in your office. Could you please grab it for me?");
+                    dialogueManager.Enqueue("William: Hey boss, I still need that information in your office. Could you please grab it for me?");
+                }
+                else
+                {
+                    dialogueManager.Enqueue("William: Thanks for the help boss");
                 }
             }
         }

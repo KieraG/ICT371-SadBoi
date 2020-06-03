@@ -19,6 +19,9 @@ TagManager:
   - Date2
   - Date3
   - InfoWindow
+  - MaterialButtonLayer
+  - MaterialText
+  - Vent
   layers:
   - Default
   - TransparentFX
@@ -30,7 +33,7 @@ TagManager:
   - 
   - PostProcessing
   - Transition
-  - 
+  - Vent
   - 
   - 
   - 

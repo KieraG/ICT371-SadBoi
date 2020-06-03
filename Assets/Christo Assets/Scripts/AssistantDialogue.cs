@@ -43,8 +43,12 @@ public class AssistantDialogue : DialogueInteractableInterface
                 if (!gaveAirconJob)
                 {
                     dialogueManager.Enqueue("Me: What's the run down on repairing the office?");
-                    dialogueManager.Enqueue("Secretary: The air conditioner was booked to be repaired yesterday, though the repairman never showed up.");
                     dialogueManager.Enqueue("Secretary: We haven't found anyone available to fix the elevator or kitchen appliances yet.");
+                    dialogueManager.Enqueue("Secretary: The air conditioner was booked to be repaired yesterday, though the repairman never showed up.");
+                    dialogueManager.Enqueue("Secretary: Little irresponsible considering they took the whole system apart, though I hear they're quite busy.");
+                    dialogueManager.Enqueue("Me: The aircon needs to be fixed ASAP, its getting unbearably hot.");
+                    dialogueManager.Enqueue("Me: I'll take a shot at repairing it myself");
+                    gaveAirconJob = true;
                 }
                 else
                 {
