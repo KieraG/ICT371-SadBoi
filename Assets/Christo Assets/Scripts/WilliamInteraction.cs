@@ -13,6 +13,8 @@ public class WilliamInteraction : DialogueInteractableInterface
 
     private GameObject scene4State = null;
 
+    public AssistantDialogue secretary = null;
+
     void Start()
     {
         scene4State = GameObject.Find("State");
@@ -20,15 +22,16 @@ public class WilliamInteraction : DialogueInteractableInterface
     
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "WilliamPaper")
+        if (jobGiven && jobInitialised && !jobComplete && other.gameObject.name == "WilliamPaper")
         {
+            other.gameObject.SetActive(false);
             jobComplete = true;
+            secretary.williamJobFinished = true;
             dialogueManager.Enqueue("William: Thanks! This will help a lot!");
             dialogueManager.Enqueue("William: While your here, has there been any update when our office is getting fixed up?");
             dialogueManager.Enqueue("William: It's been three months and the air con is still broken, along with the fridges and the elevator.");
             dialogueManager.Enqueue("Me: The repair men have been difficult to get a hold of. Let me check with my secretary.");
             scene4State.GetComponent<Scene4State>().arrowState = "SecretaryPerson";
-            other.gameObject.SetActive(false);
         }			
     }
 

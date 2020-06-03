@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PickUpObject : MonoBehaviour
 {
-	public Transform player;
+	public Transform playerGrabPoint;
 	public float throwForce = 10;
 	bool hasPlayer = false;
 	bool beingCarried = false;
@@ -35,15 +35,16 @@ public class PickUpObject : MonoBehaviour
 				rigidbody.isKinematic = false;
 				transform.parent = null;
 				beingCarried = false;
-				rigidbody.AddForce(player.forward * throwForce);
+				rigidbody.AddForce(playerGrabPoint.forward * throwForce);
 			}
 		}
 		else
 		{
-			if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E) && hasPlayer)
+			if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) && hasPlayer)
 			{
 				rigidbody.isKinematic = true;
-				transform.parent = player;
+				transform.parent = playerGrabPoint;
+				transform.localPosition = Vector3.zero;
 				beingCarried = true;
 			}
 		}
