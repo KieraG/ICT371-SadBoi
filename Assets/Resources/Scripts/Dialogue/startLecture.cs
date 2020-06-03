@@ -25,9 +25,9 @@ public class startLecture : DialogueInteractableInterface
         {
             var Waypoint = GameObject.Find("Waypoint");
             Waypoint.GetComponent<Waypoint>().SetPosition(GameObject.Find("DoorTrigger").transform.position);
-            Waypoint.GetComponent<Waypoint>().Offset = new Vector3(0.5f, 2, 0);
+            Waypoint.GetComponent<Waypoint>().Offset = new Vector3(0.5f, 2, -0.5f);
             var DoorTrigger = GameObject.Find("DoorTrigger");
-            DoorTrigger.GetComponent<BoxCollider>().enabled = true;
+            DoorTrigger.GetComponent<MeshCollider>().enabled = true;
         };
     }
 

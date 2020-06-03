@@ -4951,7 +4951,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   busTransition: {fileID: 446081864}
   player: {fileID: 662942969}
-  continueOn: 0
+  continueOn: 1
+  UseSceneNumber: 1
+  SceneNumber: 6
 --- !u!64 &600179643
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5797,29 +5799,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f710382517201604d939dd1e30c50b66, type: 3}
---- !u!1 &644499184 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 139926, guid: f710382517201604d939dd1e30c50b66,
-    type: 3}
-  m_PrefabInstance: {fileID: 644499183}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &644499185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 644499184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa066f6129b373f41847de9540dcfdd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  busTransition: {fileID: 446081864}
-  player: {fileID: 662942969}
-  continueOn: 1
-  UseSceneNumber: 1
-  SceneNumber: 4
 --- !u!4 &649930353 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 459288, guid: f710382517201604d939dd1e30c50b66,
@@ -5957,7 +5936,6 @@ MonoBehaviour:
   mouseX: 0
   mouseY: 0
   dialogueManager: {fileID: 1955454028}
-  allowMove: 1
 --- !u!114 &662942972
 MonoBehaviour:
   m_ObjectHideFlags: 0
