@@ -234,6 +234,7 @@ public class QuizManager : MonoBehaviour
 
     }
 
+    //Updates the global values for the information screen
     private void SetGlobalValue(Question.TYPE type, bool correct)
     {
         switch (type)

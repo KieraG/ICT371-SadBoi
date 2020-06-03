@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class InformationManager : MonoBehaviour
 {
+
+    //Populates the information screen with information 
+
+
     public Text TotalText;
     public Text AerosolText;
     public Text VegetationText;

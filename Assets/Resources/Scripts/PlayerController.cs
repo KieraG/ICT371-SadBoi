@@ -12,8 +12,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Vector3 moveDirection;
 
+    //Mouse movement sensitivity
     public float MouseSensitivity = 5;
     public float moveSpeed = 5;
+    //Jump height
     private float jumpForce = 5;
     private float gravityForce = 9.807f;
     private Vector3 startPos = new Vector3(0, 0, 0);
@@ -60,6 +62,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    // Manages the interaction between game obejcts
     void ManageInteraction()
     {
         if (dialogueManager.DialogQueued() && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown("joystick button 2")))
