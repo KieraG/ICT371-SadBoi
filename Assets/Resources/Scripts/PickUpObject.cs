@@ -29,7 +29,7 @@ public class PickUpObject : MonoBehaviour
 		var rigidbody = GetComponent<Rigidbody>();
 		if (beingCarried)
 		{
-			if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E))
+			if (Input.GetKeyDown("joystick button 2") || Input.GetKeyDown(KeyCode.E))
 			{
 				rigidbody.isKinematic = false;
 				transform.parent = null;
@@ -39,7 +39,7 @@ public class PickUpObject : MonoBehaviour
 		}
 		else
 		{
-			if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) && hasPlayer)
+			if ((Input.GetKeyDown("joystick button 2") || Input.GetKeyDown(KeyCode.E)) && hasPlayer)
 			{
 				rigidbody.isKinematic = true;
 				transform.parent = playerGrabPoint;
