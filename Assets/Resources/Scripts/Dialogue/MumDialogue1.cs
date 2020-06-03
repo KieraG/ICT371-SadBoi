@@ -19,17 +19,15 @@ public class MumDialogue1 : DialogueInteractableInterface
     {
         if (!hadConversation)
         {
-            dialogueManager.Enqueue("Here the player and their mum will talk about the video on the tv, and discuss about how even small things, such as putting trash into the bin, will help. This will be present in the final game.");
-            dialogueManager.Enqueue("Mum: Hey Honey, it's getting late.");
-            dialogueManager.Enqueue("Mum: You should be getting ready for bed.");
-            dialogueManager.Enqueue("Mum: Also could you please put your juice box into the trash can?");
-            dialogueManager.Enqueue("Mum: You left it in the lounge room on the coffee table.");
-            dialogueManager.Enqueue("In the final game, the player will be play a chasey minigame on their videogame console before going to bed.");
+            dialogueManager.Enqueue("Mum: Hey Honey");
+            dialogueManager.Enqueue("Mum: Could you please put your juice box into the trash can?");
+            dialogueManager.Enqueue("Mum: Once you have done that you can go and play on your MegaBox 64.");
+            dialogueManager.Enqueue("Mum: But dont stay on it to late...");
             hadConversation = true;
         }
         else
         {
-            dialogueManager.Enqueue("Come on honey, its getting late. Head up stairs and get to bed.");
+            dialogueManager.Enqueue("Did you put your OJ in the trash? You can play on your MegaBox 64 when you have.");
         }
     }
 }
