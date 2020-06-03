@@ -7,10 +7,10 @@ using UnityEngine;
 public class AssistantDialogue : DialogueInteractableInterface
 {
     // Whether the user has already had a conversation with the NPC
-    private bool gaveWilliamJob = false;
+    public bool gaveWilliamJob = false;
     public bool williamJobFinished = false;
 
-    private bool gaveAirconJob = false;
+    public bool gaveAirconJob = false;
     public bool airconJobFinished = false;
     
     private GameObject scene4State = null;
@@ -25,7 +25,6 @@ public class AssistantDialogue : DialogueInteractableInterface
     public override void TriggerAction()
     {
         if (!gaveWilliamJob) {
-            Debug.Log("trigger action");
             dialogueManager.Enqueue("Secretary: Good morning boss, how can I help?");
             dialogueManager.Enqueue("Me: What tasks have I got at hand?");
             dialogueManager.Enqueue("Secretary: Your employees need your help around the office, then you've got an interview with a potential recruit.");
@@ -48,13 +47,26 @@ public class AssistantDialogue : DialogueInteractableInterface
                     dialogueManager.Enqueue("Secretary: Little irresponsible considering they took the whole system apart, though I hear they're quite busy.");
                     dialogueManager.Enqueue("Me: The aircon needs to be fixed ASAP, its getting unbearably hot.");
                     dialogueManager.Enqueue("Me: I'll take a shot at repairing it myself");
+                    dialogueManager.Enqueue("Secretary: You will need to reassemble the vents in the room next door by picking up vents and placing them down.");
+                    dialogueManager.Enqueue("Secretary: Use the interact key to pick up/drop vents");
+                    dialogueManager.Enqueue("Secretary: Let me know if you need any help");
+                    scene4State.GetComponent<Scene4State>().arrowState = "";
                     gaveAirconJob = true;
                 }
                 else
                 {
-                    
+                    if (!airconJobFinished)
+                    {
+                        dialogueManager.Enqueue("Secretary: Reassemble the vents in the room next door by picking up vents and placing them down.");
+                        dialogueManager.Enqueue("Secretary: Use the interact key to pick up/drop vents");
+                    }
+                    else
+                    {
+                        dialogueManager.Enqueue("Secretary: Good job boss");
+                    }
                 }
             }
         }
     }
+
 }

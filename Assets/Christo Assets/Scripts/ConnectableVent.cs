@@ -13,11 +13,23 @@ public class ConnectableVent : MonoBehaviour
     public string ventType;
     
     public DialogueManager dialogueManager;
+
+    private GameObject secretary;
+
+    private GameObject scene4State;
+    
+    private static ConnectableVent[] _vents;
     
     // Start is called before the first frame update
     void Start()
     {
         setVentActive(isActive);
+        scene4State = GameObject.Find("State");
+        secretary = GameObject.Find("SecretaryPerson");
+        if (_vents == null)
+        {
+            _vents = GameObject.FindObjectsOfType<ConnectableVent>();
+        }
     }
 
     // Update is called once per frame
@@ -28,24 +40,28 @@ public class ConnectableVent : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Vent") && !isActive)
+        // don't start the minigame early
+        if ((secretary.GetComponent<AssistantDialogue>().gaveAirconJob))
         {
-            Debug.Log(isActive);
-            Debug.Log(canAcceptVent());
+            if (!isActive && other.gameObject.CompareTag("Vent") && canAcceptVent())
+            {
+                if (other.gameObject.GetComponent<ConnectableVentLoose>().ventType == ventType)
+                {
+                    other.gameObject.SetActive(false);
+                    setVentActive(true);
+                    // if all vents are completed, point to the secretary
+                    if (ventsCompleted())
+                    {
+                        secretary.GetComponent<AssistantDialogue>().airconJobFinished = true;
+                        scene4State.GetComponent<Scene4State>().arrowState = "SecretaryPerson";
+                    }
+                }
+                else if (!dialogueManager.DialogQueued())
+                {
+                    dialogueManager.Enqueue("Me: This vent doesn't fit, maybe I should try another one");
+                }
+            }
         }
-
-        if (!isActive && other.gameObject.CompareTag("Vent") && canAcceptVent())
-        {
-            if (other.gameObject.GetComponent<ConnectableVentLoose>().ventType == ventType)
-            {
-                other.gameObject.SetActive(false);
-                setVentActive(true);
-            }
-            else if (!dialogueManager.DialogQueued())
-            {
-                dialogueManager.Enqueue("Me: This vent doesn't fit, maybe I should try another one");   
-            }
-        }			
     }
 
     private bool canAcceptVent()
@@ -71,5 +87,21 @@ public class ConnectableVent : MonoBehaviour
             child.gameObject.SetActive(isActive);
         }
         this.isActive = isActive;
+    }
+    
+    public static bool ventsCompleted()
+    {
+        bool output = true;
+
+        foreach (var vent in _vents)
+        {
+            if (!vent.isActive)
+            {
+                output = false;
+                break;
+            }
+        }
+
+        return output;
     }
 }
