@@ -2307,11 +2307,13 @@ MonoBehaviour:
     isMultichoice: 0
     multiChoiceAnswer: 
     multiChoiceOptions: []
+    questionType: 3
   - text: The weather is the same as the climate.
     isTrue: 0
     isMultichoice: 0
     multiChoiceAnswer: 
     multiChoiceOptions: []
+    questionType: 0
   - text: The Greenhouse Effect
     isTrue: 0
     isMultichoice: 1
@@ -2319,6 +2321,7 @@ MonoBehaviour:
     multiChoiceOptions:
     - is caused by a shortage of oxygen.
     - Results in the decrease in the surface temperature on Earth
+    questionType: 5
   - text: The number of extreme climate-related disasters has increased in recent
       decades
     isTrue: 1
@@ -2327,6 +2330,7 @@ MonoBehaviour:
     multiChoiceOptions:
     - is caused by a shortage of oxygen.
     - Results in the decrease in the surface temperature on Earth
+    questionType: 0
   - text: The richest half of the global population is responsible for which percentage
       of the worlds carbon emissions
     isTrue: 0
@@ -2336,6 +2340,7 @@ MonoBehaviour:
     - 10%
     - 50%
     - 75%
+    questionType: 0
   - text: Climate change is caused by only natural factors
     isTrue: 0
     isMultichoice: 0
@@ -2343,6 +2348,7 @@ MonoBehaviour:
     multiChoiceOptions:
     - is caused by a shortage of oxygen.
     - Results in the decrease in the surface temperature on Earth
+    questionType: 0
   - text: Aerosols are tiny particles in the atmosphere that can either absorb or
       reflect energy from the sun.
     isTrue: 1
@@ -2351,6 +2357,7 @@ MonoBehaviour:
     multiChoiceOptions:
     - is caused by a shortage of oxygen.
     - Results in the decrease in the surface temperature on Earth
+    questionType: 2
   - text: Trees absorb CO2 during photosynthesis and can therefore act as a sink
       of CO2 from the atmosphere
     isTrue: 1
@@ -2359,6 +2366,7 @@ MonoBehaviour:
     multiChoiceOptions:
     - is caused by a shortage of oxygen.
     - Results in the decrease in the surface temperature on Earth
+    questionType: 4
   - text: Solar activity has a consistent level of energy and does not change over
       time.
     isTrue: 0
@@ -2367,6 +2375,7 @@ MonoBehaviour:
     multiChoiceOptions:
     - is caused by a shortage of oxygen.
     - Results in the decrease in the surface temperature on Earth
+    questionType: 1
   - text: The angular tilt of the earth has no bearing on the climate of the earth.
     isTrue: 0
     isMultichoice: 0
@@ -2374,6 +2383,7 @@ MonoBehaviour:
     multiChoiceOptions:
     - is caused by a shortage of oxygen.
     - Results in the decrease in the surface temperature on Earth
+    questionType: 3
   - text: Greenhouse gases are the the greatest contributer to the change in climate.
     isTrue: 1
     isMultichoice: 0
@@ -2381,6 +2391,7 @@ MonoBehaviour:
     multiChoiceOptions:
     - is caused by a shortage of oxygen.
     - Results in the decrease in the surface temperature on Earth
+    questionType: 5
   TrueButton: {fileID: 260538358}
   FalseButton: {fileID: 1540426159}
   OptionButtons:

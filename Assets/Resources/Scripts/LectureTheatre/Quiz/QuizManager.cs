@@ -166,7 +166,7 @@ public class QuizManager : MonoBehaviour
         }
         Debug.Log(currentQuestion.isTrue ? "correct" : "wrong");
     }
-     //Selectr false
+    //Selectr false
     public void UserSelectFalse()
     {
         if (!currentQuestion.isTrue)
@@ -204,6 +204,7 @@ public class QuizManager : MonoBehaviour
     //Called when a correct answer is given
     private void CorrectAnswer()
     {
+        SetGlobalValue(currentQuestion.questionType, true);
         displayingAnswerPanel = true;
         answerPanel.SetActive(true);
         answerPanel.GetComponentInChildren<Text>().text = "Correct!\n\n\nPress any key to continue";
@@ -215,6 +216,7 @@ public class QuizManager : MonoBehaviour
     //Called when a wrong answer is given
     private void WrongAnswer()
     {
+        SetGlobalValue(currentQuestion.questionType, false);
         displayingAnswerPanel = true;
         answerPanel.SetActive(true);
         if (currentQuestion.isMultichoice)
@@ -229,6 +231,49 @@ public class QuizManager : MonoBehaviour
 
         answerPanel.transform.Find("PanelLayer").GetComponent<Image>().color = Color.red;
         GlobalValues.incorrectQuestions++;
+
+    }
+
+    private void SetGlobalValue(Question.TYPE type, bool correct)
+    {
+        switch (type)
+        {
+            case Question.TYPE.GENERAL:
+                {
+                    var count = correct ? 1 : 0;
+                    GlobalValues.GeneralKnowledgeCorrect += count;
+                    GlobalValues.GeneralKnowledgeCount++;
+                }
+                break;
+            case Question.TYPE.SOLAR:
+                {
+                    GlobalValues.SolarQuestionCorrect = correct;
+                }
+                break;
+            case Question.TYPE.VEGETATION:
+                {
+                    GlobalValues.VegetationQuestionCorrect = correct;
+                }
+                break;
+            case Question.TYPE.TILT:
+                {
+                    GlobalValues.TiltQuestionCorrect = correct;
+                }
+                break;
+            case Question.TYPE.GREENHOUSE:
+                {
+                    var count = correct ? 1 : 0;
+                    GlobalValues.GreenhouseQuestionsCorrect += count;
+                    GlobalValues.GreenhouseQuestionsCount++;
+                }
+                break;
+            case Question.TYPE.AEROSOL:
+                {
+                    GlobalValues.AerosolQuestionCorrect = correct;
+                }
+                break;
+
+        }
     }
 
     // Update is called once per frame
