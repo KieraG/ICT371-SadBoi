@@ -10,6 +10,7 @@ public class AssistantDialogue : DialogueInteractableInterface
     private bool hadConversation = false;
     
     private GameObject scene4State = null;
+    public WilliamInteraction william = null;
 
     void Start()
     {
@@ -26,6 +27,7 @@ public class AssistantDialogue : DialogueInteractableInterface
             dialogueManager.Enqueue("Secretary: Your employees need your help around the office, then you've got an interview with a potential recruit.");
             dialogueManager.Enqueue("Secretary: William is just around the corner, please check with him first.");
             hadConversation = true;
+            william.jobGiven = true;
             scene4State.GetComponent<Scene4State>().arrowState = "William";
         } else {
             dialogueManager.Enqueue("Secretary: Your employees need your help around the office, then you've got an interview with a potential recruit.");
