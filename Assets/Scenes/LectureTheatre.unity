@@ -5818,6 +5818,8 @@ MonoBehaviour:
   busTransition: {fileID: 446081864}
   player: {fileID: 662942969}
   continueOn: 1
+  UseSceneNumber: 1
+  SceneNumber: 4
 --- !u!4 &649930353 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 459288, guid: f710382517201604d939dd1e30c50b66,
@@ -5955,6 +5957,7 @@ MonoBehaviour:
   mouseX: 0
   mouseY: 0
   dialogueManager: {fileID: 1955454028}
+  allowMove: 1
 --- !u!114 &662942972
 MonoBehaviour:
   m_ObjectHideFlags: 0

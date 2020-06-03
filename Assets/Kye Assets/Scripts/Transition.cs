@@ -13,6 +13,9 @@ public class Transition : MonoBehaviour
 
     private Color tempColor;
 
+    public bool UseSceneNumber = false;
+    public int SceneNumber;
+
 
     // Start is called before the first frame update
     void Start()
@@ -58,7 +61,15 @@ public class Transition : MonoBehaviour
 
             if (busTransition.GetComponent<CanvasGroup>().alpha >= 1)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
+                if (!UseSceneNumber)
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
+                }
+                else
+                {
+                    SceneManager.LoadScene(SceneNumber, LoadSceneMode.Single);
+                }
+
                 //player.transform.position = player.GetComponent<PlayerController>().getStartPos(); //This here is used to do the reverse transtion. However when going to a new scene, all scripts are canceled (unless specifically work around it). Thus Fade on new scene is used instead.
                 //StartCoroutine(FadeOutTime());
                 yield return null;
