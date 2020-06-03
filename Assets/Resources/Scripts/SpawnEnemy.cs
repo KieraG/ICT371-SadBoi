@@ -24,6 +24,8 @@ public class SpawnEnemy : MonoBehaviour
 
     void SpawnEnemyBall()
     {
-        Instantiate(myPrefab, new Vector3(-16.89f, 0.60f, 22.02f), Quaternion.identity);
+        float x = Random.Range(-25f, 25f);
+        float z = Random.Range(-30f, 25f);
+        Instantiate(myPrefab, new Vector3(x, 0.60f, z), Quaternion.identity);
     }
 }
