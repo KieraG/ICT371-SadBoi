@@ -10,7 +10,6 @@ public class DeskTrigger : MonoBehaviour
         //Stops the player from moving and starts the quizher
         if (!GlobalValues.finishedQuiz)
         {
-            GameObject.Find("Waypoint").GetComponentInChildren<Renderer>().enabled = false;
             var Player = GameObject.Find("Main Character").GetComponent<PlayerController>();
             Player.AllowLooking = false;
             Player.AllowMovement = false;

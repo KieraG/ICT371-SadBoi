@@ -17,7 +17,7 @@ public class EndOfMinigame : MonoBehaviour
         pc.AllowMovement = false;
         if (PlayerPrefs.GetInt("scoreCounter") == -1)
         {
-            dialogueManager.Enqueue("Boss: I am very dissapointed in you! You accepted and passed through 3 incorrect documents! This will cost a lot of time and money for the company to fix your mistakes.");
+            dialogueManager.Enqueue("Boss: I am very disappointed in you! You accepted and passed through 3 incorrect documents! This will cost a lot of time and money for the company to fix your mistakes.");
             dialogueManager.Enqueue("Boss: You are lucky I don't fire you on the spot!");
             dialogueManager.Enqueue("Boss: Go home now through the back door and think about what you have done!");
         }
@@ -31,7 +31,7 @@ public class EndOfMinigame : MonoBehaviour
 
         else if (PlayerPrefs.GetInt("scoreCounter") > 5 && PlayerPrefs.GetInt("scoreCounter") <= 15)
         {
-            dialogueManager.Enqueue("Boss: Good job, you correctly analyzed " + PlayerPrefs.GetInt("scoreCounter") + " spreadsheets. The company satisifed with this level of work being done.");
+            dialogueManager.Enqueue("Boss: Good job, you correctly analyzed " + PlayerPrefs.GetInt("scoreCounter") + " spreadsheets. The company satisfied with this level of work being done.");
             dialogueManager.Enqueue("Boss: Keep this up and I might one day put in a good word for you to get promoted!");
             dialogueManager.Enqueue("Boss: I think you have earned yourself a rest, head out the back door at the end of the room!");
         }
