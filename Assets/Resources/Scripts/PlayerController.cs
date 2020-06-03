@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour
 
     private DialogueInteractableInterface[] dialogueInteractables = null;
 
-    public bool allowMove = true;
     // Start is called before the first frame update
     void Start()
     {

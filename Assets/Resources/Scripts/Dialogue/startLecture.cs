@@ -8,6 +8,7 @@ public class startLecture : DialogueInteractableInterface
     public DialogueManager mang = null;
     public GameObject SlideShowScreen;
     private DialogueManager.DoAction Action = null;
+    private DialogueManager.DoAction EndQuizAction = null;
 
     void Start()
     {
@@ -18,6 +19,15 @@ public class startLecture : DialogueInteractableInterface
             Waypoint.GetComponent<Waypoint>().Offset = new Vector3(0, 2, 0);
             var DeskTrigger = GameObject.Find("DeskTrigger");
             DeskTrigger.GetComponent<BoxCollider>().enabled = true;
+        };
+
+        EndQuizAction = delegate
+        {
+            var Waypoint = GameObject.Find("Waypoint");
+            Waypoint.GetComponent<Waypoint>().SetPosition(GameObject.Find("DoorTrigger").transform.position);
+            Waypoint.GetComponent<Waypoint>().Offset = new Vector3(0.5f, 2, 0);
+            var DoorTrigger = GameObject.Find("DoorTrigger");
+            DoorTrigger.GetComponent<BoxCollider>().enabled = true;
         };
     }
 
@@ -64,5 +74,6 @@ public class startLecture : DialogueInteractableInterface
             dialogueText = "Me: I really need to study climate change more to get a better result on the next test. ";
         }
         dialogueManager.Enqueue(dialogueText);
+        dialogueManager.Enqueue("Me: The lecture is over now, I should leave", EndQuizAction);
     }
 }

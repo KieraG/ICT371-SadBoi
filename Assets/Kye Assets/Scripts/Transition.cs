@@ -27,7 +27,8 @@ public class Transition : MonoBehaviour
         
     }
 
-    void OnCollisionEnter(Collision col)
+
+    public void OnCollisionEnter(Collision col)
     {
         //If player collides, active the transition if the continue boolean is true
         if (col.gameObject.tag == "Player" && continueOn)
