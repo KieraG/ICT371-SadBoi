@@ -28,6 +28,8 @@ public class MumDialogue1 : DialogueInteractableInterface
         else
         {
             dialogueManager.Enqueue("Did you put your OJ in the trash? You can play on your MegaBox 64 when you have.");
+            dialogueManager.Enqueue("I dont think Dad unplugged it, so it should be next to the TV.");
+            dialogueManager.Enqueue("Narrator: Press E on the console to enter the game/interact.");
         }
     }
 }
