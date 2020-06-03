@@ -8,6 +8,7 @@ public class startLecture : DialogueInteractableInterface
     public DialogueManager mang = null;
     public GameObject SlideShowScreen;
     private DialogueManager.DoAction Action = null;
+    private DialogueManager.DoAction EndQuizAction = null;
 
     void Start()
     {
@@ -18,6 +19,15 @@ public class startLecture : DialogueInteractableInterface
             Waypoint.GetComponent<Waypoint>().Offset = new Vector3(0, 2, 0);
             var DeskTrigger = GameObject.Find("DeskTrigger");
             DeskTrigger.GetComponent<BoxCollider>().enabled = true;
+        };
+
+        EndQuizAction = delegate
+        {
+            var Waypoint = GameObject.Find("Waypoint");
+            Waypoint.GetComponent<Waypoint>().SetPosition(GameObject.Find("DoorTrigger").transform.position);
+            Waypoint.GetComponent<Waypoint>().Offset = new Vector3(0.5f, 2, -0.5f);
+            var DoorTrigger = GameObject.Find("DoorTrigger");
+            DoorTrigger.GetComponent<MeshCollider>().enabled = true;
         };
     }
 
@@ -32,13 +42,14 @@ public class startLecture : DialogueInteractableInterface
         {
 
             dialogueManager.Enqueue("Professor: Welcome to Climatology class.");
-            dialogueManager.Enqueue("Professor: In the final version of the game, I will talk about the effects and the causes of climate change and show a short video on screen.");
-            dialogueManager.Enqueue("Me: I will go and sit at my desk to complete a quiz on climate change.", Action);
+            dialogueManager.Enqueue("Professor: Please go sit at your desk, and we will begin a presentation on the effects and causes of Climate Change.");
+            dialogueManager.Enqueue("Professor: After the presentation, we will also have a quiz to see how much you know.");
+            dialogueManager.Enqueue("Me: I should go and sit at my desk to complete a quiz on climate change.", Action);
             hadConversation = true;
         }
         else
         {
-            dialogueManager.Enqueue("Professor: Still can't find your desk? It is at the back left of the room.", Action);
+            dialogueManager.Enqueue("Professor: Still can't find your desk? It is the middle desk in the front row.", Action);
         }
     }
 
@@ -48,20 +59,21 @@ public class startLecture : DialogueInteractableInterface
         float percentageCorrect = GlobalValues.correctQuestions / (GlobalValues.correctQuestions + GlobalValues.incorrectQuestions) * 100;
         if (percentageCorrect > 99)
         {
-            dialogueText =  "I got every question correct, I did a really great job here. ";
+            dialogueText = "Me: I got every question correct, I did a really great job here. ";
         }
         else if (percentageCorrect > 75)
         {
-            dialogueText = "I got most of the questions correct, I'm pretty happy with the result but I should try to get a better result next time";
+            dialogueText = "Me: I got most of the questions correct, I'm pretty happy with the result but I should try to get a better result next time";
         }
         else if (percentageCorrect > 50)
         {
-            dialogueText = "I got about half of the questions correct, I should try to get better for next time. ";
+            dialogueText = "Me: I got about half of the questions correct, I should try to get better for next time. ";
         }
         else
         {
             dialogueText = "Me: I really need to study climate change more to get a better result on the next test. ";
         }
         dialogueManager.Enqueue(dialogueText);
+        dialogueManager.Enqueue("Me: The lecture is over now, I should leave", EndQuizAction);
     }
 }
