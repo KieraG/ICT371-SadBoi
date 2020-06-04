@@ -34,7 +34,7 @@ public class InformationManager : MonoBehaviour
              percentage = GlobalValues.correctQuestions / totalQuestions * 100;
         }
 
-        TotalText.text = "Out of " + totalQuestions +  " total questions. \n You got \n\n" + percentage + "%";
+        TotalText.text = "Out of " + totalQuestions +  " total questions. You got " + GlobalValues.correctQuestions + " correct.";
 
         if (GlobalValues.AerosolQuestionCorrect)
         {

@@ -14,6 +14,31 @@ public class MainMenu : MonoBehaviour
         credits.SetActive(false);
     }
 
+    void Update()
+    {
+        //Xbox button A
+        if (Input.GetKeyDown("joystick button 0"))
+        {
+            PlayScene();
+        }
+        //Xbox button B
+        if (Input.GetKeyDown("joystick button 1"))
+        {
+            Quit();
+        }
+        //Xbox button X
+        if (Input.GetKeyDown("joystick button 2"))
+        {
+
+            ToggleCredits();
+        }
+        //Xbox button Y
+        if (Input.GetKeyDown("joystick button 3"))
+        {
+
+        }
+    }
+
     // Changes the scene to scene 1 when called, should be called externally (e.g. by a UI button)
     public void PlayScene()
     {
