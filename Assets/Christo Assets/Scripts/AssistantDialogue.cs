@@ -6,27 +6,30 @@ using UnityEngine;
 // The first conversation is different to the following conversations
 public class AssistantDialogue : DialogueInteractableInterface
 {
-    // Whether the user has already had a conversation with the NPC
+    // various states to determine what dialogue or auctions shosuld be carried out
     public bool gaveWilliamJob = false;
     public bool williamJobFinished = false;
-
     public bool gaveAirconJob = false;
     public bool airconJobFinished = false;
-
     public bool gaveSteveJob = false;
 
+    // stores state for scene, updated to determine where the waypoint arrow should be
     private GameObject scene4State = null;
+    
+    // interaction scripts for NPCs that should have their state altered or checked against
     public WilliamInteraction william = null;
     public SteveInteraction steve = null;
 
+    // get the state object
     void Start()
     {
         scene4State = GameObject.Find("State");
     }
 
-    // Determines what to do when the action is triggered
+    // When in range of the secretary, trigger interaction
     public override void TriggerAction()
     {
+        // give the job about william if it hasn't been given already, update william's state and set the waypoint to william
         if (!gaveWilliamJob)
         {
             dialogueManager.Enqueue("Secretary: Good morning boss, how can I help?");
@@ -40,12 +43,14 @@ public class AssistantDialogue : DialogueInteractableInterface
         }
         else
         {
+            // remind the player that william still needs help if his job hasn't been finished
             if (!williamJobFinished)
             {
                 dialogueManager.Enqueue("Secretary: I believe William still needs your help.");
             }
             else
             {
+                // if william job finished and airrcon job hasn't been given, give out aircon job and turn off waypoint
                 if (!gaveAirconJob)
                 {
                     dialogueManager.Enqueue("Me: What's the run down on repairing the office?");
@@ -58,7 +63,9 @@ public class AssistantDialogue : DialogueInteractableInterface
                     dialogueManager.Enqueue("Me: The aircon needs to be fixed ASAP, its getting unbearably hot.");
                     dialogueManager.Enqueue("Me: I'll take a shot at repairing it myself");
                     dialogueManager.Enqueue(
-                        "Secretary: You will need to reassemble the vents in the room next door by picking up vents and placing them down.");
+                        "Secretary: You will need to reassemble the vents in the room next door by picking up vents and placing them next to vents already connected.");
+                    dialogueManager.Enqueue(
+                        "Secretary: The start and end of the vents should already be there");
                     dialogueManager.Enqueue("Secretary: Use the interact key to pick up/drop vents");
                     dialogueManager.Enqueue("Secretary: Let me know if you need any help");
                     scene4State.GetComponent<Scene4State>().arrowState = "";
@@ -66,14 +73,18 @@ public class AssistantDialogue : DialogueInteractableInterface
                 }
                 else
                 {
+                    // if air con job hasn't been given, remind the user of their controls
                     if (!airconJobFinished)
                     {
                         dialogueManager.Enqueue(
-                            "Secretary: Reassemble the vents in the room next door by picking up vents and placing them down.");
+                            "Secretary: You will need to reassemble the vents in the room next door by picking up vents and placing them next to vents already connected.");
+                        dialogueManager.Enqueue(
+                            "Secretary: The start and end of the vents should already be there");
                         dialogueManager.Enqueue("Secretary: Use the interact key to pick up/drop vents");
                     }
                     else
                     {
+                        // if air con job finished and steve's job hasn't been given
                         if (!gaveSteveJob)
                         {
                             dialogueManager.Enqueue("Secretary: Good job boss.");
