@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         playerCamera = GetComponentInChildren<Camera>();
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         startPos = this.transform.localPosition;
         dialogueInteractables = GameObject.FindObjectsOfType<DialogueInteractableInterface>();
     }

@@ -23,6 +23,7 @@ public class InformationManager : MonoBehaviour
         if (Input.anyKeyDown)
         {
             SceneManager.LoadScene(0);
+            Cursor.visible = true;
         }
     }
     void Start()

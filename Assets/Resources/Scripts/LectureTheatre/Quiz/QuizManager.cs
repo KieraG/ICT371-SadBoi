@@ -58,6 +58,7 @@ public class QuizManager : MonoBehaviour
 
             GlobalValues.quizEnd = true;
             GlobalValues.finishedQuiz = true;
+            Cursor.visible = false;
         }
 
     }

@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     {
         // Make sure the cursor is visible for the main menu scene
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         credits.SetActive(false);
     }
 

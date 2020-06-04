@@ -64,6 +64,7 @@ public class CreateDocument : MonoBehaviour
     {
         // Unlocks the cursor for the minigame
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         GameObject temp;
 
@@ -98,6 +99,8 @@ public class CreateDocument : MonoBehaviour
             Destroy(currentSignature);
 
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
             if (lockoutTimer <= 0)
                 transitionToNext.continueOn = true;
 

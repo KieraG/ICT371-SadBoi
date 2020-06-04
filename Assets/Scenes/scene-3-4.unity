@@ -18649,6 +18649,7 @@ MonoBehaviour:
   range: 5
   dialogueManager: {fileID: 1967131645}
   mang: {fileID: 1967131645}
+  eom: {fileID: 1576704901}
 --- !u!65 &569739359
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -50784,6 +50785,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f96f581d7cf25bb46a65de8ff409f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1576704901 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2213538262681936275, guid: 43adb1dabd1f9ad4dbb96e71ab9c766f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2394809369308702590}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576704896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad9563b196e93554c9ccf7181f4b7198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1577201636
