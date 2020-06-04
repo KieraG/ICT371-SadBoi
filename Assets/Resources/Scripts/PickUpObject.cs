@@ -10,6 +10,7 @@ public class PickUpObject : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
+
 		if (other.gameObject.name == "MainCharacter")
 		{
 			hasPlayer = true;
@@ -31,6 +32,7 @@ public class PickUpObject : MonoBehaviour
 		{
 			if (Input.GetKeyDown("joystick button 2") || Input.GetKeyDown(KeyCode.E))
 			{
+				// Put object down
 				rigidbody.isKinematic = false;
 				transform.parent = null;
 				beingCarried = false;
@@ -41,6 +43,7 @@ public class PickUpObject : MonoBehaviour
 		{
 			if ((Input.GetKeyDown("joystick button 2") || Input.GetKeyDown(KeyCode.E)) && hasPlayer)
 			{
+				// Pick up object
 				rigidbody.isKinematic = true;
 				transform.parent = playerGrabPoint;
 				transform.localPosition = Vector3.zero;

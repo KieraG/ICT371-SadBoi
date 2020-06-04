@@ -10,20 +10,13 @@ public class SpawnEnemy : MonoBehaviour
 
     private void Start()
     {
+        //Starts a courtine that runs every 10 seconds with a delay of 10.
         InvokeRepeating("SpawnEnemyBall", 10.0f, 10.0f);
-    }
-
-    void Update()
-    {
-        //if (Time.time > nextActionTime)
-        //{
-        //    nextActionTime += period;
-            
-        //}
     }
 
     void SpawnEnemyBall()
     {
+        // Spawn random ball on map, attack the player with the ball
         float x = Random.Range(-25f, 25f);
         float z = Random.Range(-30f, 25f);
         Instantiate(myPrefab, new Vector3(x, 0.60f, z), Quaternion.identity);
