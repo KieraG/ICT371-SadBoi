@@ -26,6 +26,7 @@ public class RandomFriend : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Checks to see if the player has had the conversation with the friend AND they have viewed all the dialogue, which activates the w
         if (talkingToFriend.hadConversation && !talkingToFriend.mang.DialogQueued() && !noMoreCall)
         {
             blocker.GetComponent<Transition>().continueOn = true;
@@ -41,6 +42,7 @@ public class RandomFriend : MonoBehaviour
         // Places the main characters friend in a random postion (within bounds) and a semi-random rotation
         transform.position = new Vector3(Random.Range(35f, 70f), 0f, Random.Range(20f, 40f));
 
+        //Makes the friend look at the stage in the middle of scene no matter where he spawns
         Vector3 look = new Vector3(speaker.gameObject.transform.position.x, this.transform.position.y, speaker.gameObject.transform.position.z);
         transform.LookAt(look);
     }

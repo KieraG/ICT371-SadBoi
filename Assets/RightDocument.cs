@@ -19,16 +19,20 @@ public class RightDocument : MonoBehaviour
 
     void Update()
     {
-        if (!infoScreen && Input.GetKeyDown("joystick button 2"))
+        //If the player presses the B controller button to accept the document
+        if (!infoScreen && Input.GetKeyDown("joystick button 1"))
         {
             changeDocument.changeDocument = true;
 
+            //Check to make sure the currently displayed document doesn't contain any of the things listed at the start screen and the total price is correct
             if (changeDocument.currentDate.tag != changeDocument.incorrectDate && changeDocument.currentLogo.tag != changeDocument.incorrectLogo && changeDocument.currentSignature.tag != changeDocument.incorrectSignature && changeDocument.total == changeDocument.fakeTotal)
             {
+                //Increase the score counter
                 changeDocument.scoreCounter++;
                 score.text = changeDocument.scoreCounter.ToString();
             }
 
+            //If it does contain an illegal item or the total price is incorrect, then the document shouldnt have been approved, so increases the wrong counter by 1
             else
             {
                 changeDocument.wrongCounter++;
@@ -39,17 +43,20 @@ public class RightDocument : MonoBehaviour
 
     void OnMouseDown()
     {
-       
+
+        //If the player clicks the apporove button
         if (!infoScreen)
         {
             changeDocument.changeDocument = true;
 
+            //Check to make sure the currently displayed document doesn't contain any of the things listed at the start screen and the total price is correct
             if (changeDocument.currentDate.tag != changeDocument.incorrectDate && changeDocument.currentLogo.tag != changeDocument.incorrectLogo && changeDocument.currentSignature.tag != changeDocument.incorrectSignature && changeDocument.total == changeDocument.fakeTotal)
             {
                 changeDocument.scoreCounter++;
                 score.text = changeDocument.scoreCounter.ToString();
             }
 
+            //If it does contain an illegal item or the total price is incorrect, then the document shouldnt have been approved, so increases the wrong counter by 1
             else
             {
                 changeDocument.wrongCounter++;

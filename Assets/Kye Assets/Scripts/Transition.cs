@@ -58,7 +58,7 @@ public class Transition : MonoBehaviour
             tempColor.a = transOpacity;
             busTransition.GetComponent<CanvasGroup>().alpha = tempColor.a;
 
-
+            //Waits until the fade has occured until transfering to the next scene
             if (busTransition.GetComponent<CanvasGroup>().alpha >= 1)
             {
                 if (!UseSceneNumber)
@@ -70,7 +70,7 @@ public class Transition : MonoBehaviour
                     SceneManager.LoadScene(SceneNumber, LoadSceneMode.Single);
                 }
 
-                //player.transform.position = player.GetComponent<PlayerController>().getStartPos(); //This here is used to do the reverse transtion. However when going to a new scene, all scripts are canceled (unless specifically work around it). Thus Fade on new scene is used instead.
+                //player.transform.position = player.GetComponent<PlayerController>().getStartPos(); //This here used to do the reverse transtion. However when going to a new scene, all scripts are canceled (unless specifically work around it). Thus Fade on new scene is used instead.
                 //StartCoroutine(FadeOutTime());
                 yield return null;
             }
@@ -80,6 +80,7 @@ public class Transition : MonoBehaviour
 
     }
 
+    //Legacy, used to handle fade ins
    /* IEnumerator FadeOutTime()
     {
         var transOpacity = 1f;

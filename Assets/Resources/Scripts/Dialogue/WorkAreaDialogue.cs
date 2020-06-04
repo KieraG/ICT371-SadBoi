@@ -21,7 +21,8 @@ public class WorkAreaDialogue : MonoBehaviour
 
      private void OnCollisionEnter(Collision collision)
      {
-         if (collision.gameObject.tag == "Player")
+        //If the player collides with the trigger, lock all movement and looking, display text and destroy this game object
+        if (collision.gameObject.tag == "Player")
          {
             pc.AllowLooking = false;
             pc.AllowMovement = false;
@@ -34,6 +35,7 @@ public class WorkAreaDialogue : MonoBehaviour
             Destroy(this.gameObject);
          }
 
+        //Move once all the dialogue has been read
         if (!mang.DialogQueued())
         {
             pc.AllowLooking = true;
