@@ -38,6 +38,11 @@ public class MainMenu : MonoBehaviour
         {
 
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            SceneManager.LoadScene(11, LoadSceneMode.Single);            
+        }
     }
 
     // Changes the scene to scene 1 when called, should be called externally (e.g. by a UI button)
