@@ -1,11 +1,10 @@
 
-#A Single Voice
+# A Single Voice
+
+![GitHub Logo](https://img.youtube.com/vi/IxS1lnAHDyE/0.jpg)
+- https://www.youtube.com/watch?v=IxS1lnAHDyE
+
 ## ICT-371
-
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/watch?v=IxS1lnAHDyE" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
-
 #### By Peter, Kiera, Kye and Christo
 <p align="center">
   <a href="#building">Building</a> •
