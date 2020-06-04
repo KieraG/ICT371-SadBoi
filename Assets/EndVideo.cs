@@ -11,6 +11,7 @@ public class EndVideo : MonoBehaviour
     void Start()
     {
         videoPlayer = this.GetComponent<VideoPlayer>();
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "garbage_2_2.mp4");
     }
 
     // Update is called once per frame

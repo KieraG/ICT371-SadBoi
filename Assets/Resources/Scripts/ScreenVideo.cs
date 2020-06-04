@@ -9,7 +9,7 @@ public class ScreenVideo : MonoBehaviour
     {
         //Instantiate a video based on the asset path.
         vp = gameObject.AddComponent<UnityEngine.Video.VideoPlayer>();
-        vp.url = assetPath;
+        vp.url = System.IO.Path.Combine(Application.streamingAssetsPath, assetPath);
 
         vp.isLooping = true;
         vp.renderMode = UnityEngine.Video.VideoRenderMode.MaterialOverride;
