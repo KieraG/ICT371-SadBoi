@@ -9,7 +9,7 @@ public class OnAwakeTwo : MonoBehaviour
 
     void Start()
     {
-        mang.Enqueue("Me: I've finally arrived at my lecture, I should go and talk to the Professor.");
+        mang.Enqueue("Me: It's my first day at University, I should go speak to the Lecturer.");
     }
     // Update is called once per frame
     void Update()
