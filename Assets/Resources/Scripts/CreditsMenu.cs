@@ -6,16 +6,18 @@ public class CreditsMenu : MonoBehaviour
 {
     public GameObject mainMenu;
     
+    public GameObject credits;
+    
     // Start is called before the first frame update
     void Start()
     {
         mainMenu.SetActive(true);
-        gameObject.SetActive(false);
+        credits.SetActive(false);
     }
 
     public void ToggleMainMenu()
     {
         mainMenu.SetActive(true);
-        gameObject.SetActive(false);
+        credits.SetActive(false);
     }
 }
