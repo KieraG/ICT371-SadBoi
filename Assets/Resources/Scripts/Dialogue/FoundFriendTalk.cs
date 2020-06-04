@@ -31,17 +31,25 @@ public class FoundFriendTalk : DialogueInteractableInterface
             pc.AllowLooking = false;
             pc.AllowMovement = false;
 
-            dialogueManager.Enqueue("Good Friend 2: Woah, long time no see! How crazy is this protest! Hopefully something good will come out of it! ");
-            dialogueManager.Enqueue("Me: Yeah its incredible, however our friend sent me to find you, so you should probably go back to her.");
+            dialogueManager.Enqueue("Good Friend 2: Yoooooo! You finally arrived sleepy head. Happy birthday! The protest here is really popping off.");
+            dialogueManager.Enqueue("Me: Yeah it really is, hopefully the government will really listen to our concerns.");
+            dialogueManager.Enqueue("Good Friend 2: Lets hope! We should get a sign and join in with the crowd");
+            dialogueManager.Enqueue("Me: Yeah sure thing, I will ju...");
             dialogueManager.Enqueue("*Phone rings*");
-            dialogueManager.Enqueue("Boss: In the full game I will ask the main character that he needs to come in now to work or they are fired. No excuses!");
+            dialogueManager.Enqueue("Boss: Hey, I need you to drop everything and come in work NOW!");
+            dialogueManager.Enqueue("Me: Ah... sorry, I am really busy at the moment, I am at the climate change rally and I got the day off...");
+            dialogueManager.Enqueue("Boss: I don't care, that is not as important as you coming to work now!! I expect you to be here within the hour!");
+            dialogueManager.Enqueue("Me: But...");
+            dialogueManager.Enqueue("Boss: NO BUTS! If you don't come, you will be fired!");
             dialogueManager.Enqueue("*Phone call ends*");
             dialogueManager.Enqueue("Me: That was my boss, he wants me to go into work!");
-            dialogueManager.Enqueue("Good friend: Don't do it, we need you here.");
+            dialogueManager.Enqueue("Good Friend 2: Don't do it, we need you here helping the cause! You even got the day off for this!");
             dialogueManager.Enqueue("Me: If I don't go, I will get fired!");
-            dialogueManager.Enqueue("The good friend and the main character will have a discussion on needing to stand up for what you believe in");
-            dialogueManager.Enqueue("Me: I am sorry I have to go to work... I will stay for the next one.");
-            dialogueManager.Enqueue("If you really want to man, don't let your work take over you! Just follow the arrow to the next area, that will lead you out of the area to the next scene.");
+            dialogueManager.Enqueue("Good Friend 2: You are letting that job dictate your life! You really need to stand up for yourself there...");
+            dialogueManager.Enqueue("Me: I know, but if I just stay a bit longer at the job I could get a promotion!");
+            dialogueManager.Enqueue("If that is what you want, just remember that there are bigger things in life then just work. Trust me this would have been worth it, for you and everyone else.");
+            dialogueManager.Enqueue("Me: I am sorry I have to go to work now... I will definitely stay for the next one.");
+            dialogueManager.Enqueue("Okay... and remember don't let your work take over you! Just follow the arrow to the next area, that will lead you out of the area, away from the protestors.");
 
             hadConversation = true;
         }

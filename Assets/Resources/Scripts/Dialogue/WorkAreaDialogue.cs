@@ -26,17 +26,18 @@ public class WorkAreaDialogue : MonoBehaviour
             pc.AllowLooking = false;
             pc.AllowMovement = false;
 
-            mang.Enqueue("This is my office, where I will perform my work I will need");
-            mang.Enqueue("When I collide with my desk it will start a minigame, in where I must go quickly go through paperwork under a certain amount of time, like a puzzle.");
-            mang.Enqueue("However the mini game has yet to be completed, so the table will now take you to the next scene.");
+            mang.Enqueue("Home sweet office cubicle...");
+            mang.Enqueue("I can't believe my boss, he really just doesn't get the damage climate change is doing to planet.");
+            mang.Enqueue("But maybe he is right? Maybe I should stop worrying about it and concentrate on my work...");
+            mang.Enqueue("Anyway I better get started on approving spreadsheets.");
+
             Destroy(this.gameObject);
-        }
+         }
 
         if (!mang.DialogQueued())
         {
             pc.AllowLooking = true;
             pc.AllowMovement = true;
-
         }
     } 
 }
