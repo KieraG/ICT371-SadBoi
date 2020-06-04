@@ -42,9 +42,9 @@ public class startLecture : DialogueInteractableInterface
         {
 
             dialogueManager.Enqueue("Professor: Welcome to Climatology class.");
-            dialogueManager.Enqueue("Professor: Please go sit at your desk, and we will begin a presentation on the effects and causes of Climate Change.");
-            dialogueManager.Enqueue("Professor: After the presentation, we will also have a quiz to see how much you know.");
-            dialogueManager.Enqueue("Me: I should go and sit at my desk to complete a quiz on climate change.", Action);
+            dialogueManager.Enqueue("Professor: Please go sit at your desk, and we will begin a quiz on Climate Change.");
+            dialogueManager.Enqueue("Professor: Take a look at the board before you sit down, you might learn something useful.");
+            dialogueManager.Enqueue("Me: I should take a look at the board and then go sit at my desk.", Action);
             hadConversation = true;
         }
         else
