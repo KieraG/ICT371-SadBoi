@@ -14,7 +14,7 @@ public class RandomFriend : MonoBehaviour
     [SerializeField]
     private FoundFriendTalk talkingToFriend = null;
 
-
+    private bool noMoreCall = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,11 +26,12 @@ public class RandomFriend : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (talkingToFriend.hadConversation && !talkingToFriend.mang.DialogQueued())
+        if (talkingToFriend.hadConversation && !talkingToFriend.mang.DialogQueued() && !noMoreCall)
         {
             blocker.GetComponent<Transition>().continueOn = true;
             transitionArea.SetActive(true);
             arrow.SetActive(true);
+            noMoreCall = true;
         }
     }
 
