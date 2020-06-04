@@ -33,6 +33,7 @@ public class SteveInteraction : DialogueInteractableInterface
                 dialogueManager.Enqueue(
                     "Steve: Thanks for the book. I believe you have an interview in the room behind me.");
                 scene4State.GetComponent<Scene4State>().arrowState = "NewKid";
+                newKid.jobGiven = true;
             }
             else
             {
@@ -45,7 +46,6 @@ public class SteveInteraction : DialogueInteractableInterface
     // Determines what to do when the action is triggered
     public override void TriggerAction()
     {
-        Debug.Log("STEVE");
         if (jobGiven)
         {
             if (!jobInitialised)
@@ -68,7 +68,6 @@ public class SteveInteraction : DialogueInteractableInterface
                 if (!jobComplete)
                 {
                     dialogueManager.Enqueue("Steve: Any luck finding the book? I believe you said it was a green one in the storage room.");
-                    newKid.jobGiven = true;
                 }
                 else
                 {

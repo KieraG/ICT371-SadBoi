@@ -8,8 +8,8 @@ public class WilliamInteraction : DialogueInteractableInterface
 {
     // Whether the user has already had a conversation with the NPC
     public bool jobGiven = false;
-    private bool jobInitialised = false;
-    private bool jobComplete = false;
+    public bool jobInitialised = false;
+    public bool jobComplete = false;
 
     private GameObject scene4State = null;
 
