@@ -25,6 +25,7 @@ public class onAwakeThree : MonoBehaviour
 
     void Update()
     {
+        //Waits until the fade in has completed before displaying the conversation
         if (startingCanvas.GetComponent<CanvasGroup>().alpha == 0 && hadConversation == false)
         {
             mang.Enqueue("Okay I am finally at work!");
@@ -34,7 +35,7 @@ public class onAwakeThree : MonoBehaviour
             hadConversation = true;
         }
 
-
+        //Allows movement when all dialogue has been read
         if (!mang.DialogQueued() && startingCanvas.GetComponent<CanvasGroup>().alpha == 0)
         {
             pc.AllowLooking = true;

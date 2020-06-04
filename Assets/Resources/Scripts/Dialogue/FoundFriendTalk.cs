@@ -23,14 +23,19 @@ public class FoundFriendTalk : DialogueInteractableInterface
 
     public override void TriggerAction()
     {
+
+        //If the player presses E and talks to their 2nd friend
         if (!hadConversation)
         {
+            // The friend will turn and look at the player depending on which direction they came from
             Vector3 look = new Vector3(pc.gameObject.transform.position.x, this.transform.position.y, pc.gameObject.transform.position.z);
             transform.LookAt(look);
 
+            //Stops movement
             pc.AllowLooking = false;
             pc.AllowMovement = false;
 
+            //Displays dialogue
             dialogueManager.Enqueue("Good Friend 2: Yoooooo! You finally arrived sleepy head. Happy birthday! The protest here is really popping off.");
             dialogueManager.Enqueue("Me: Yeah it really is, hopefully the government will really listen to our concerns.");
             dialogueManager.Enqueue("Good Friend 2: Lets hope! We should get a sign and join in with the crowd");
@@ -53,11 +58,14 @@ public class FoundFriendTalk : DialogueInteractableInterface
 
             hadConversation = true;
         }
+
+        //If the player has finished the main dialogue, the friend says this if they interact with them again
         else
         {
             dialogueManager.Enqueue("Just follow the arrow my friend.");
         }
 
+        //allows movemment if all dialogue has been read
         if (!mang.DialogQueued())
         {
             pc.AllowLooking = true;
