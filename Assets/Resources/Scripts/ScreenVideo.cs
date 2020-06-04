@@ -7,6 +7,7 @@ public class ScreenVideo : MonoBehaviour
 
     void Start()
     {
+        //Instantiate a video based on the asset path.
         vp = gameObject.AddComponent<UnityEngine.Video.VideoPlayer>();
         vp.url = assetPath;
 

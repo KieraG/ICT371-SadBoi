@@ -28,6 +28,7 @@ public class PlayerChase : MonoBehaviour
     {
         if (!isRunning)
         {
+            // Checks if the dialog has ended before they attack the player.
             if (GameObject.FindGameObjectWithTag("Player").GetComponent<Game1Dialog>().hadConversation)
             {
                 isRunning = true;
@@ -37,6 +38,7 @@ public class PlayerChase : MonoBehaviour
         {
             if (Vector3.Distance(player.position, this.transform.position) < viewDistance) //if player comes within a distance less than 10, Apex activates
             {
+                // Run to the player.
                 Vector3 direction = player.position - this.transform.position;
 
                 direction.y = 0.0f;

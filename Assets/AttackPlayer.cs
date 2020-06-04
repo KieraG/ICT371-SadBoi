@@ -43,6 +43,7 @@ public class AttackPlayer : MonoBehaviour
 
     void addForce()
     {
+        //Adds force towards the given player
         Vector3 direction = (target.position - transform.position);
         direction.y = 0;
         direction = direction.normalized;

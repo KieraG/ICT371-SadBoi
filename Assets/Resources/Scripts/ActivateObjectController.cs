@@ -9,6 +9,7 @@ public class ActivateObjectController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown("joystick button 2")))
         {
+            // Used to activate object
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 

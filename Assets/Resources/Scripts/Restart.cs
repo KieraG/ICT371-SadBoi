@@ -5,20 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Restart : MonoBehaviour
 {
-    //Scene scene;
-    // Start is called before the first frame update
-    void Start()
+   private void OnTriggerEnter(Collider other)
     {
-        //scene = SceneManager.GetActiveScene();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    private void OnTriggerEnter(Collider other)
-    {
+        // Death trigger script, when you hit this, you restart the scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
