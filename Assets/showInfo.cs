@@ -23,7 +23,8 @@ public class showInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("joystick button 0"))
+        // Displays the starting help window if the controller button A is pressed
+        if (Input.GetKeyDown("joystick button 0"))
         {
             window.SetActive(true);
             window.GetComponent<InformationScreen>().SetImageActive();
@@ -35,6 +36,7 @@ public class showInfo : MonoBehaviour
 
     private void OnMouseDown()
     {
+        // Displays the starting help window if the mouse clicked
         window.SetActive(true);
         window.GetComponent<InformationScreen>().SetImageActive();
         stopApprove.infoScreen = true;

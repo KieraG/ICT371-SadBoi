@@ -26,6 +26,7 @@ public class TransitionMinigame : MonoBehaviour
     void Update()
     {
 
+        //Start transition
         if (continueOn && transitionStart)
         {
             busTransition.gameObject.SetActive(true);
@@ -47,6 +48,7 @@ public class TransitionMinigame : MonoBehaviour
             busTransition.GetComponent<CanvasGroup>().alpha = tempColor.a;
 
 
+            //Waits until the fade has occured until transfering to the next scene
             if (busTransition.GetComponent<CanvasGroup>().alpha >= 1)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);

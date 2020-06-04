@@ -32,18 +32,20 @@ public class StartBoss : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            //Makes both the player and the boss look at each no matter where the player hits the scene box
             Vector3 bossLook = new Vector3(pc.gameObject.transform.position.x, boss.transform.position.y, pc.gameObject.transform.position.z);
             Vector3 playerLook = new Vector3(boss.transform.position.x + 5, pc.gameObject.transform.position.y, boss.transform.position.z);
-
-            arrow.SetActive(true);
 
             boss.transform.LookAt(bossLook);
             mainCamera.transform.LookAt(playerLook);
 
+            //Sets the way point arrow to true
+            arrow.SetActive(true);
 
             pc.AllowLooking = false;
             pc.AllowMovement = false;
 
+            //Display dialogue and destroy the trigger
             dialogueManager.Enqueue("Boss: You finally made it. You are ten minutes late! You should be on call and be able to come to work at any time during work hours!");
             dialogueManager.Enqueue("Me: I am sorry... I was at the climate change rally, which is about trying to help futu...  ");
             dialogueManager.Enqueue("Boss: It doesn't matter! You need to start putting your work first!");
@@ -58,6 +60,7 @@ public class StartBoss : MonoBehaviour
             Destroy(gameObject);
         }
 
+        //Allow movement once the 
         if (!dialogueManager.DialogQueued())
         {
             pc.AllowLooking = true;

@@ -20,6 +20,8 @@ public class InformationScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Creates and displays the incorrect date, signatures and logo
+
         infoLogo = Instantiate(infoLogo, new Vector3(infoLogo.transform.position.x + 0.1f, infoLogo.transform.position.y - 0.15f, infoLogo.transform.position.z - 0.025f), transform.rotation);
         //infoLogo.transform.localScale = new Vector3(0.00814856f, 0.00814856f, 0.00814856f);
 
@@ -38,6 +40,7 @@ public class InformationScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Hide the info screen if the player presses A on their controller
         if (Input.GetKeyDown("joystick button 0"))
         {
             gameObject.SetActive(false);
@@ -50,6 +53,7 @@ public class InformationScreen : MonoBehaviour
 
     }
 
+    //Hide the info screen if the player presses clicks the exit button
     private void OnMouseDown()
     {
         gameObject.SetActive(false);
@@ -61,6 +65,7 @@ public class InformationScreen : MonoBehaviour
 
     }
 
+    //Used when another script wishes to show the information screen
     public void SetImageActive()
     {
         infoLogo.SetActive(true);

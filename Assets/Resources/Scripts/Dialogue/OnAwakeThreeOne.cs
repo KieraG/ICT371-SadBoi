@@ -18,14 +18,12 @@ public class OnAwakeThreeOne : MonoBehaviour
     {
         pc.AllowLooking = false;
         pc.AllowMovement = false;
-
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Waits until the fade in has completed before displaying the conversation
         if (startingCanvas.GetComponent<CanvasGroup>().alpha == 0 && hadConversation == false)
         {
             mang.Enqueue("Good Friend: Hey, you finally made it! The protest against the governments lack of action on reducing the effect of climate change has just kicked into full gear! (Press E to contunue)");
@@ -39,6 +37,7 @@ public class OnAwakeThreeOne : MonoBehaviour
         }
 
 
+        //Allows movement when all dialogue has been read
         if (!mang.DialogQueued() && startingCanvas.GetComponent<CanvasGroup>().alpha == 0)
         {
             pc.AllowLooking = true;
