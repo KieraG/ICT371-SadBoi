@@ -10,6 +10,13 @@ public class NewKidInteraction : DialogueInteractableInterface
     // Whether the user has already had a conversation with the NPC
 
     private DialogueManager.DoAction NextSceneAction = null;
+    
+    [Tooltip("Canvas attached to the player")]
+    public Canvas playerTransitionCanvas;
+
+    public Canvas dialogCanvas;
+    
+    private Color tempColor;
 
     public bool jobGiven = false;
 
@@ -18,7 +25,8 @@ public class NewKidInteraction : DialogueInteractableInterface
         scene4State = GameObject.Find("State");
         NextSceneAction = delegate
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            playerTransitionCanvas.gameObject.SetActive(true);
+            StartCoroutine(FadeInTime());
         };
     }
     
@@ -59,4 +67,31 @@ public class NewKidInteraction : DialogueInteractableInterface
                 "", NextSceneAction);
         }
     }
+    
+    IEnumerator FadeInTime()
+    {
+        var transOpacity = 0f;
+        dialogCanvas.GetComponent<CanvasGroup>().alpha = 0;
+
+        // Transitions from clear to black
+        while (playerTransitionCanvas.GetComponent<CanvasGroup>().alpha <= 1)
+        {
+            transOpacity = transOpacity + 0.02f;
+            tempColor.a = transOpacity;
+            playerTransitionCanvas.GetComponent<CanvasGroup>().alpha = tempColor.a;
+
+
+            if (playerTransitionCanvas.GetComponent<CanvasGroup>().alpha >= 1)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(0.04f);
+        }
+
+    }
+    
+    
 }
