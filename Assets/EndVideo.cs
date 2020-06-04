@@ -20,7 +20,7 @@ public class EndVideo : MonoBehaviour
         if ((ulong)videoPlayer.frame == videoPlayer.frameCount - 2)
         {
             //SceneManager.LoadScene(0);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }
