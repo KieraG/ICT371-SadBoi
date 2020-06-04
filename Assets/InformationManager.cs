@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class InformationManager : MonoBehaviour
@@ -17,6 +18,13 @@ public class InformationManager : MonoBehaviour
     public Text SolarText;
 
     // Start is called before the first frame update
+    void Update()
+    {
+        if (Input.anyKeyDown)
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
     void Start()
     {
         int totalQuestions = GlobalValues.correctQuestions + GlobalValues.incorrectQuestions;
