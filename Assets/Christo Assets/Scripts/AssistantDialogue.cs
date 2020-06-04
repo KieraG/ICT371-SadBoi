@@ -84,7 +84,7 @@ public class AssistantDialogue : DialogueInteractableInterface
                     }
                     else
                     {
-                        // if air con job finished and steve's job hasn't been given
+                        // if air con job finished and steve's job hasn't been given, queue steve job and waypoint steve
                         if (!gaveSteveJob)
                         {
                             dialogueManager.Enqueue("Secretary: Good job boss.");
@@ -93,6 +93,7 @@ public class AssistantDialogue : DialogueInteractableInterface
                             steve.jobGiven = true;
                         }
 
+                        // if steve job not compelte, show help instructions
                         if (!steve.jobComplete)
                         {
                             dialogueManager.Enqueue(
@@ -102,6 +103,7 @@ public class AssistantDialogue : DialogueInteractableInterface
                         }
                         else
                         {
+                            // if steve job finished, tell user ot help the potential recruit
                             dialogueManager.Enqueue(
                                 "Secretary: Make sure to interview the potential recruit.");
                         }
