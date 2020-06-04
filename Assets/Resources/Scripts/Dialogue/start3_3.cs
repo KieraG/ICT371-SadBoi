@@ -5,6 +5,9 @@ using UnityEngine;
 public class start3_3 : DialogueInteractableInterface
 {
     public DialogueManager mang;
+
+    [SerializeField]
+    private EndOfMinigame eom = null;
     void Start()
     {
 
@@ -17,8 +20,8 @@ public class start3_3 : DialogueInteractableInterface
 
     public override void TriggerAction()
     {
-
-        dialogueManager.Enqueue("Boss: Please leave through the door at the back of the room...");
+        if(eom.hadConversation)
+            mang.Enqueue("Boss: Please leave through the door at the back of the room...");
 
     } 
 }

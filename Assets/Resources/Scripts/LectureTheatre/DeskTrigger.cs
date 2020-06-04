@@ -20,6 +20,7 @@ public class DeskTrigger : MonoBehaviour
             startedQuiz = true;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Additive);
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
 
